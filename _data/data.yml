@@ -4,28 +4,28 @@
 
 sidebar:
   position: right # position of the sidebar : left or right
-  about: True # set to False or comment line if you want to remove the "how to use?" in the sidebar
-  education: True # set to False if you want education in main section instead of in sidebar
+  about: False # set to False or comment line if you want to remove the "how to use?" in the sidebar
+  education: False # set to False if you want education in main section instead of in sidebar
 
   # Profile information
-  name: Alan Doe
-  tagline: Full Stack Developer
+  name: Kjell Wundram
+  tagline: M.Sc. Applied Earth Observation & Geoanalysis
   avatar: profile.png #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
 
   # Sidebar links
-  email: example@email.com
-  phone: 012 345 6789
-  timezone: America/Cancun # Enter your timezone, e.g., America/Havana, Africa/Casablanca, America/North_Dakota/Center
-  citizenship:
-  website: https://example.com/ # Include the full website URL, including "http://" or "https://".
-  linkedin: alandoe
-  xing: alandoe
-  github: jekyll
+  email: kjell.wundram@protonmail.com
+  phone:
+  timezone: Europe/Berlin # Enter your timezone, e.g., America/Havana, Africa/Casablanca, America/North_Dakota/Center
+  citizenship: Würzburg, Germany
+  website:
+  linkedin:
+  xing:
+  github: kwundram2602
   telegram: # add your nickname without '@' sign
   gitlab:
   bitbucket:
-  bluesky: '@jekyllrb.bsky.social' # Specify your full Bluesky handle
-  twitter: '@jekyllrb'
+  bluesky: # Specify your full Bluesky handle
+  twitter:
   stack-overflow: # Number/Username, e.g. 123456/alandoe
   codewars:
   goodreads: # Number-Username, e.g. 123456-alandoe
@@ -37,250 +37,173 @@ sidebar:
   languages:
     title: Languages
     info:
+    - idiom: German
+      level: C2 — Native language
+
     - idiom: English
-      level: Native
+      level: C1 — Listening, Reading, Writing, Speaking
 
     - idiom: French
-      level: Professional
-
-    - idiom: Spanish
-      level: Professional
-
-  interests:
-    title: Interests
-    info:
-    - item: Climbing
-      link:
-
-
-    - item: Snowboarding
-      link:
-
-
-    - item: Cooking
-      link:
-
+      level: A2
 
 career-profile:
   title: Career Profile
   summary: |
-    Summarise your career here lorem ipsum dolor sit amet, consectetuer
-    adipiscing elit. You can [download this free resume/CV template here]().
-    Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque
-    penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-    Donec quam felis, ultricies nec, pellentesque eu.
-    Second paragraph if required.
+    Earth observation and geoinformatics graduate student, currently in the
+    M.Sc. Applied Earth Observation and Geoanalysis programme at the University
+    of Würzburg, run in collaboration with the Earth Observation Center of the
+    German Aerospace Center (DLR-EOC).
+
+    My work sits between remote sensing and machine learning: deep learning for
+    image segmentation and object detection, multi-sensor analysis of SAR,
+    optical and thermal data, and cloud-based processing of large EO archives.
+    Alongside that I have hands-on experience with efficient and embedded ML —
+    model compression, quantisation and HPC-based training from the TinyAIoT
+    project at the Spatial Intelligence Lab in Münster.
+
 education:
   title: Education
   info:
-  - degree: MSc in Computer Science
-    university: University of London
-    time: 2011 - 2012
+  - degree: M.Sc. Applied Earth Observation and Geoanalysis
+    university: Institute of Geography and Geology, University of Würzburg
+    time: 2025 - ongoing
     details: |
-      Describe your study here lorem ipsum dolor sit amet, consectetuer
-      adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-      sociis natoque penatibus et magnis dis parturient montes, nascetur
-      ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
-      pretium quis, sem.
-        - Bullet point
-        - Bullet point
-  - degree: BSc in Applied Mathematics
-    university: Bristol University
-    time: 2007 - 2011
+      M.Sc. programme in collaboration with the Earth Observation Center at the
+      German Aerospace Center (DLR-EOC). No grade yet.
+
+      Selection of current courses:
+        - AI approaches in Earth Observation — PyTorch for classification, image segmentation and object detection tasks
+        - Earth Observation Cloud Computing
+        - Risk and Disaster Earth Observation
+  - degree: B.Sc. Geoinformatics
+    university: Institute for Geoinformatics, University of Münster
+    time: 2021 - 2025
     details: |
-      Describe your study here lorem ipsum dolor sit amet, consectetuer
-      adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-      sociis natoque penatibus et magnis dis parturient montes, nascetur
-      ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
-      pretium quis, sem.
-        - Bullet point
-        - Bullet point
+      Fundamentals of mathematics and computer science, geosciences and, of
+      course, fundamentals and advanced elements of geoinformatics.
+      Grade: 2,2
+
+      Relevant coursework:
+        - Machine Learning for openEOcubes
+        - Machine Learning
+        - Remote Sensing courses
+  - degree: B.A. Public Governance across Borders
+    university: Institute of Political Science, University of Münster
+    time: 2020 - 2021
+    details:
+  - degree: B.Sc. VWL (Economics)
+    university: Martin-Luther-Universität Halle-Wittenberg, Halle (Saale)
+    time: 2019 - 2020
+    details:
+  - degree: Secondary School — Abitur
+    university: Europaschule Gymnasium Westerstede, Westerstede
+    time: 2011 - 2019
+    details: |
+      Qualification: Abitur, Graduation: 2019
 
 experiences:
-  title: Experiences
+  title: Experience
   info:
-  - role: Lead Developer
-    time: 2015 - Present
-    company: Startup Hubs, San Francisco
+  - role: DLR Internship (upcoming)
+    time: Oct 2026 - Dec 2026
+    company: German Aerospace Center (DLR)
     details: |
-      Describe your role here lorem ipsum dolor sit amet, consectetuer
-      adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-      Cum sociis natoque penatibus et magnis dis parturient montes,
-      nascetur ridiculus mus. Donec quam felis, ultricies nec,
-      pellentesque eu, pretium quis, sem. Nulla consequat massa quis
-      enim. Donec pede justo. Sed ut perspiciatis unde omnis iste natus
-      error sit voluptatem accusantium doloremque laudantium, totam rem
-      aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-      architecto beatae vitae dicta sunt explicabo.
-        - Bullet point
-        - Bullet point
-  - role: Senior Software Engineer
-    time: 2014 - 2015
-    company: Google, London
+      Island volcanism — multi-sensor remote sensing: SAR, optical, thermal.
+  - role: Innovation Lab — Crown and Deadwood Segmentation
+    time: Jan 2026 - ongoing
+    company: Pattern Recognition Department, Institute of Computer Science, University of Würzburg
     details: |
-      Describe your role here lorem ipsum dolor sit amet, consectetuer
-      adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-      Cum sociis natoque penatibus et magnis dis parturient montes,
-      nascetur ridiculus mus. Donec quam felis, ultricies nec,
-      pellentesque eu, pretium quis, sem.
-        - Bullet point
-        - Bullet point
-  - role: UI Developer
-    time: 2012 - 2014
-    company: Amazon, London
+      Cooperation project on segmentation of tree crowns and deadwood from
+      remote sensing imagery.
+  - role: Student Assistant
+    time: Feb 2026 - May 2026
+    company: Max-Planck-Institute of Animal Behavior
     details: |
-      Describe your role here lorem ipsum dolor sit amet, consectetuer
-      adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-      Cum sociis natoque penatibus et magnis dis parturient montes,
-      nascetur ridiculus mus. Donec quam felis, ultricies nec,
-      pellentesque eu, pretium quis, sem.
-        - Bullet point
-        - Bullet point
+      Providing and analyzing Earth observation data.
+  - role: Student Assistant — TinyAIoT project
+    time: Jul 2024 - Sep 2025
+    company: Spatial Intelligence Lab, University of Münster
+    details: |
+      Student assistant in the TinyAIoT project at the Spatial Intelligence Lab.
+      Project code: [TinyEnergyBench](https://github.com/TinyAIoT/TinyEnergyBench/tree/dev)
+
+      Tasks and achievements:
+        - Training of machine learning models with TensorFlow and PyTorch
+        - Compression / quantization of ML models
+        - Integrating High Performance Computing (HPC) into the training process
+        - Deployment on microcontrollers, profiling, measuring inference time
+  - role: Student Assistant — Teaching
+    time: Oct 2023 - Mar 2024 & Oct 2022 - Mar 2023
+    company: University of Münster
+    details: |
+      Supervising exercises in the module "Introduction to Geoinformatics".
 
 certifications:
-  title: Certifications
+  title: Training & Workshops
   list:
-  - name: CV Builder
-    start: 2020
-    end: 2021
-    organization: Microsoft
-    credentialid: 111-222
-    credentialurl: www.google.com
-    credentialname: Google
-    details: |
-      Details about cert. Lorem ipsum dolor sit amet, consectetur
-      adipiscing elit.
-      Nullam eget orci purus. Nullam ultrices neque nibh.
-      Aenean fermentum, felis vulputate suscipit accumsan,
-      sem enim bibendum augue, sed convallis arcu lacus at dui.
-      Pellentesque et nibh suscipit, vestibulum turpis eu, semper tortor.
-      Praesent felis nibh, eleifend id eleifend id, dictum id enim.
-      Praesent venenatis erat non augue suscipit consectetur.
-
-      Second paragraph. Sed eleifend enim ante, vitae efficitur purus
-      fringilla vel. Ut euismod, sem sed vulputate venenatis,
-      justo diam viverra velit, sed rhoncus leo leo eu justo.
-      Suspendisse placerat risus ante, sed porta nisi blandit at.
-  - name: Git learning
-    start: 2019
+  - name: ESA Academy Training — Disruptive Innovation and Commercialisation in Earth Observation
+    start: 2026
     end:
-    organization: Microsoft
-    credentialid: 111-222
-    credentialurl: www.github.com
-    credentialname: Github
+    organization: European Space Agency (ESA)
+    credentialid:
+    credentialurl:
+    credentialname:
     details: |
-      Older certification. Lorem ipsum dolor sit amet, consectetur
-      adipiscing elit.
-      Nullam eget orci purus. Nullam ultrices neque nibh.
-      Aenean fermentum, felis vulputate suscipit accumsan,
-      sem enim bibendum augue, sed convallis arcu lacus at dui.
-      Pellentesque et nibh suscipit, vestibulum turpis eu, semper tortor.
-      Praesent felis nibh, eleifend id eleifend id, dictum id enim.
-      Praesent venenatis erat non augue suscipit consectetur.
+      Training programme on innovation and commercialisation pathways for Earth
+      observation technologies and services.
 
 projects:
   title: Projects
   intro: >
-    You can list your side projects in this section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.
+    A selection of my own repositories. More on
+    <a href="https://github.com/kwundram2602" target="_blank">GitHub</a>.
   assignments:
-  - title: Velocity
-    link: "#hook"
-    tagline: "A responsive website template designed to help startups promote, market and sell their products."
-
-  - title: DevStudio
-    link: "#"
-    tagline: "A responsive website template designed to help web developers/designers market their services."
-
-  - title: Tempo
-    link: "#"
-    tagline: "A responsive website template designed to help startups promote their products or services and to attract users &amp; investors"
-
-  - title: Atom
-    link: "#"
-    tagline: "A comprehensive website template solution for startups/developers to market their mobile apps."
-
-  - title: Delta
-    link: "#"
-    tagline: "A responsive Bootstrap one page theme designed to help app developers promote their mobile apps"
+  - title: openeo_flood
+    link: "https://github.com/kwundram2602/openeo_flood"
+    tagline: "Flood mapping from Earth observation data using the openEO API."
 
 oss:
   title: OSS Contributions
   intro: >
-    You can list your open source software contributions in this section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.
+    Open source work I have contributed to.
   contributions:
-  - title: Tempo
-    link: "#"
-    tagline: "A responsive website template designed to help startups promote their products or services and to attract users &amp; investors"
-
-  - title: Atom
-    link: "#"
-    tagline: "A comprehensive website template solution for startups/developers to market their mobile apps."
-
-  - title: Delta
-    link: "#"
-    tagline: "A responsive Bootstrap one page theme designed to help app developers promote their mobile apps"
+  - title: TinyEnergyBench
+    link: "https://github.com/TinyAIoT/TinyEnergyBench/tree/dev"
+    tagline: "Benchmarking energy consumption and inference time of quantized ML models on microcontrollers — built during the TinyAIoT project."
 
 publications:
-  title: Publications
-  intro: |
-    You can list your publications in this section. Lorem ipsum dolor sit
-    amet, consectetur adipiscing elit. Vestibulum et ligula in nunc
-    bibendum fringilla a eu lectus.
+  title: Bachelor's Thesis
+  intro:
   papers:
-  - title: The Art of Computer Programming
-    link: "#"
-    authors: Donald E. Knuth
-    conference: Addison-Wesley, 1968
-
-  - title: "Genetic Programming III: Darwinian Invention &amp; Problem Solving"
-    link: "#"
-    authors: Koza, J.R., Andre, D., Bennett, F.H., Keane, M.A.
-    conference: "Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1st edn. (1999)"
-
-  - title: A syntax directed compiler for Algol 60
-    link: "#"
-    authors: Edgar T. Irons
-    conference: "Comm. ACM 4 (1961), 51–55"
-
-recommendations:
-  title: Recommendations
-  list:
-  - person: Yareli Perez
-    email: perezyareli@example.com
-    phone: 012 345 6789
-    role: General Director at example.com
-    recommendation: |
-      Alan Doe is a super employee!
-  - person: Lara Henderson
-    email: larah@example.com
-    phone: 012 345 6789
-    role: General Director at example.com
-    recommendation: |
-      I would like to work with Alan Doe again!
-
-      He is a great employee!
+  - title: "Animal Welfare in Laboratory Conditions: Monitoring Zebrafish Behavior Using Deep Learning"
+    link: "https://github.com/kwundram2602/Bachelor_Thesis"
+    authors: "Kjell Wundram — supervised by Prof. Dr. Benjamin Risse"
+    conference: "University of Münster, 2025 — grade 1,7. Implemented and surveyed deep learning methods to measure the effect of enrichment in water tanks on zebrafish."
 
 skills:
   title: Skills &amp; Proficiency
 
   toolset:
-  - name: Python & Django
-    level: 98%
+  - name: Python (3.5 yrs) — matplotlib, geopandas, torch, numpy
+    level: 80%
 
-  - name: Javascript & jQuery
-    level: 98%
+  - name: QGIS (4 yrs) — remote sensing projects, automation with Python, plugin basics
+    level: 80%
 
-  - name: Angular
-    level: 98%
-
-  - name: HTML5 & CSS
-    level: 95%
-
-  - name: Ruby on Rails
-    level: 85%
-
-  - name: Sketch & Photoshop
+  - name: R (4 yrs) — geostatistics, dynamic spatial processes, earth observation
     level: 60%
 
+  - name: Google Earth Engine (2.5 yrs) — remote sensing projects, cloud computing
+    level: 60%
+
+  - name: Git (3 yrs)
+    level: 60%
+
+  - name: Slurm / HPC (2 yrs) — SLURM workflows
+    level: 60%
+
+  - name: SNAP (0.5 yrs) — basic operations on RADAR data
+    level: 40%
+
 footer: >
-  Designed with <i class="fas fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a>
+  Kjell Wundram — built with the <a href="https://github.com/sharu725/online-cv" target="_blank" rel="nofollow">online-cv</a> Jekyll theme, designed by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a>.
