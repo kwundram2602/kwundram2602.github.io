@@ -10,7 +10,7 @@ sidebar:
   # Profile information
   name: Kjell Wundram
   tagline: M.Sc. Applied Earth Observation & Geoanalysis
-  avatar: profile.png #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
+  avatar: #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
 
   # Sidebar links
   email: kjell.wundram@protonmail.com
@@ -176,7 +176,7 @@ publications:
   intro:
   papers:
   - title: "Animal Welfare in Laboratory Conditions: Monitoring Zebrafish Behavior Using Deep Learning"
-    link: "https://github.com/kwundram2602/Bachelor_Thesis"
+    link:
     authors: "Kjell Wundram — supervised by Prof. Dr. Benjamin Risse"
     conference: "University of Münster, 2025 — grade 1,7. Implemented and surveyed deep learning methods to measure the effect of enrichment in water tanks on zebrafish."
 
