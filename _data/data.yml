@@ -18,7 +18,7 @@ sidebar:
   timezone: Europe/Berlin # Enter your timezone, e.g., America/Havana, Africa/Casablanca, America/North_Dakota/Center
   citizenship: Würzburg, Germany
   website:
-  linkedin:
+  linkedin: kjell-wundram-2508641b7
   xing:
   github: kwundram2602
   telegram: # add your nickname without '@' sign
@@ -49,15 +49,16 @@ sidebar:
 career-profile:
   title: Career Profile
   summary: |
-    Earth observation and geoinformatics graduate student, currently in the
+    Geoinformatics graduate student, currently in the
     M.Sc. Applied Earth Observation and Geoanalysis programme at the University
     of Würzburg, run in collaboration with the Earth Observation Center of the
     German Aerospace Center (DLR-EOC).
 
-    My work sits between remote sensing and machine learning: deep learning for
-    image segmentation and object detection, multi-sensor analysis of SAR,
-    optical and thermal data, and cloud-based processing of large EO archives.
-    Alongside that I have hands-on experience with efficient and embedded ML —
+    In my master's studies, I focus on remote sensing and deep learning for
+    image segmentation, I was able to learn about the analysis of SAR,
+    optical and thermal data, and cloud-based processing of EO data.
+
+    Alongside that I have experience with efficient and embedded ML —
     model compression, quantisation and HPC-based training from the TinyAIoT
     project at the Spatial Intelligence Lab in Münster.
 
@@ -160,15 +161,15 @@ projects:
   assignments:
   - title: openeo_flood
     link: "https://github.com/kwundram2602/openeo_flood"
-    tagline: "Flood mapping from Earth observation data using the openEO API."
+    tagline: "Flood mapping using the Global Flood Monitor. Also includes Flexth flood interpolation and basic damage assessment."
 
 oss:
-  title: OSS Contributions
+  title: Contributions
   intro: >
-    Open source work I have contributed to.
+    Work I have contributed to.
   contributions:
   - title: TinyEnergyBench
-    link: "https://github.com/TinyAIoT/TinyEnergyBench/tree/dev"
+    link: "https://github.com/TinyAIoT"
     tagline: "Benchmarking energy consumption and inference time of quantized ML models on microcontrollers — built during the TinyAIoT project."
 
 publications:
@@ -184,15 +185,16 @@ skills:
   title: Skills &amp; Proficiency
 
   toolset:
+  # 2023/2024
   - name: Python (3.5 yrs) — matplotlib, geopandas, torch, numpy
     level: 80%
-
+  # 2021/2022
   - name: QGIS (4 yrs) — remote sensing projects, automation with Python, plugin basics
     level: 80%
 
   - name: R (4 yrs) — geostatistics, dynamic spatial processes, earth observation
     level: 60%
-
+  # 2023/2024
   - name: Google Earth Engine (2.5 yrs) — remote sensing projects, cloud computing
     level: 60%
 
