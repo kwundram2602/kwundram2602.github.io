@@ -1,0 +1,61 @@
+/* ======= Colour palettes (defined in _data/data.yml, see $palettes in main.scss) ======= */
+// A palette overrides the colour tokens of any style. Imported after the styles
+// and with a more specific selector, so it wins over their light and dark colours.
+
+@mixin palette-tokens($p) {
+  $dark: map-get($p, dark);
+  $text: map-get($p, text);
+  $theme: map-get($p, theme);
+  $soft: map-get($p, soft);
+  $accent: map-get($p, accent);
+  $surface: if(map-has-key($p, surface), map-get($p, surface), if($dark, #1B1E23, #fff));
+  $bg: if(map-has-key($p, bg), map-get($p, bg), if($dark, darken($surface, 4%), mix($theme, #fff, 7%)));
+
+  --theme: #{$theme};
+  --theme-strong: #{if($dark, lighten($theme, 8%), darken($theme, 8%))};
+  --theme-soft: #{$soft};
+  --secondary: #{$soft};
+  --accent: #{$accent};
+  --link: #{$theme};
+  --link-hover: #{$accent};
+  --text: #{$text};
+  --text-2: #{mix($text, $surface, 86%)};
+  --muted: #{mix($text, $surface, if($dark, 58%, 68%))};
+  --bg: #{$bg};
+  --surface: #{$surface};
+  --divider: #{mix($theme, $surface, if($dark, 22%, 16%))};
+  --chip-bg: #{rgba($theme, if($dark, 0.14, 0.07))};
+  --chip-text: #{$theme};
+  --sq-off: #{mix($theme, $surface, 25%)};
+  --ctl-bg: #{if($dark, mix($theme, #000, 50%), $theme)};
+  --sidebar: #{if($dark, lighten($surface, 5%), $theme)};
+  --sidebar-2: #{if($dark, lighten($surface, 2%), darken($theme, 6%))};
+  --sidebar-glow: #{rgba($soft, 0.35)};
+  @if $dark {
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    color-scheme: dark;
+  } @else {
+    --shadow: 0 10px 30px rgba(15, 30, 45, 0.08), 0 2px 6px rgba(15, 30, 45, 0.06);
+    color-scheme: light;
+  }
+}
+
+@each $id, $p in $palettes {
+  @if map-get($p, dark) {
+    // Dark palettes are for the screen only; print keeps the style's light colours.
+    @media screen {
+      html[data-palette="#{$id}"][data-style] {
+        @include palette-tokens($p);
+      }
+    }
+  } @else {
+    html[data-palette="#{$id}"][data-style] {
+      @include palette-tokens($p);
+    }
+  }
+
+  // Swatch in the Style panel
+  .swatch-#{$id} {
+    background: linear-gradient(135deg, map-get($p, text) 0 50%, map-get($p, theme) 50% 78%, map-get($p, soft) 78%);
+  }
+}

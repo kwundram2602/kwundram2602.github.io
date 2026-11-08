@@ -60,6 +60,70 @@ styles:
   name: Minimal
   description: Black & white, one column
 
+# Colour palettes for the Style button (work with every style; the choice is
+# saved in the browser, ?palette=<id> in the URL also works). Colours must be
+# quoted. text = headings/name, theme = section titles and accents,
+# soft = lighter shade of the same hue, accent = highlights (default: theme).
+# The first entry without colours is "Auto": each style's own colours,
+# following the system light/dark setting.
+# Optional: bg, surface (page and paper colour), dark: true (screen only;
+# print falls back to the style's light colours).
+palettes:
+- id: auto
+  name: Auto
+  description: The style's own colours, follows the system light/dark mode
+- id: navy
+  name: Navy
+  text: "#14213D"
+  theme: "#1B2F6E"
+  soft: "#7083BC"
+  accent: "#2D4FA3"
+- id: royal
+  name: Royal blue
+  text: "#172036"
+  theme: "#1D4ED8"
+  soft: "#8BA6EE"
+  accent: "#1D4ED8"
+- id: steel
+  name: Steel blue
+  text: "#1E2935"
+  theme: "#36597A"
+  soft: "#93A9BF"
+  accent: "#4C7AA6"
+- id: petrol
+  name: Petrol
+  text: "#12303A"
+  theme: "#0E5566"
+  soft: "#7AABB5"
+  accent: "#1E7F73"
+- id: forest
+  name: Forest
+  text: "#1A2C21"
+  theme: "#22543D"
+  soft: "#86AD95"
+  accent: "#3B8556"
+- id: burgundy
+  name: Burgundy
+  text: "#2C1A1E"
+  theme: "#7A1F35"
+  soft: "#C4929E"
+  accent: "#A33A52"
+- id: graphite
+  name: Graphite
+  text: "#1A1A1A"
+  theme: "#3A3F47"
+  soft: "#9AA0A8"
+  accent: "#5A6270"
+- id: night
+  name: Night
+  dark: true
+  text: "#ECEEF1"
+  theme: "#AFC4E6"
+  soft: "#6C7F9E"
+  accent: "#D9B36C"
+  bg: "#111316"
+  surface: "#1B1E23"
+
 sidebar:
   position: right # position of the sidebar (EO style): left or right
 

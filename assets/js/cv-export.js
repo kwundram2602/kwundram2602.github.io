@@ -1,12 +1,13 @@
-// Style switcher and print/PDF export.
+// Style / colour switcher and print/PDF export.
 // - Style: sets data-style on <html>; saved in localStorage ("cv-style").
+// - Colours: sets data-palette on <html>; saved in localStorage ("cv-palette").
 // - Export: the chosen sections get .export-hidden toggled off/on (only has an
 //   effect in print), the chosen style is applied while printing, then restored.
 (function () {
   "use strict";
 
   const root = document.documentElement;
-  const KEYS = { style: "cv-style", sections: "cv-export-sections" };
+  const KEYS = { style: "cv-style", palette: "cv-palette", sections: "cv-export-sections" };
   const store = {
     get(key) {
       try {
@@ -29,31 +30,40 @@
   if (!controls) return;
 
   const styleCards = [...controls.querySelectorAll("[data-set-style]")];
+  const paletteButtons = [...controls.querySelectorAll("[data-set-palette]")];
   const sectionBoxes = [...controls.querySelectorAll('input[name="export-section"]')];
   const styleRadios = [...controls.querySelectorAll('input[name="export-style"]')];
   const toggles = [...controls.querySelectorAll(".cv-btn[aria-controls]")];
 
-  // ---------- Style ----------
-  function markActiveStyle() {
-    styleCards.forEach((card) => {
-      card.setAttribute("aria-pressed", String(card.dataset.setStyle === root.dataset.style));
-    });
-  }
+  // ---------- Style and colours ----------
+  // name: "style" or "palette" (the data-* attribute on <html> and the URL parameter)
+  function chooser(name, buttons) {
+    const attr = "set" + name[0].toUpperCase() + name.slice(1);
 
-  function setStyle(id) {
-    root.dataset.style = id;
-    store.set(KEYS.style, id);
-    markActiveStyle();
-    // Drop a ?style= override so a reload keeps the new choice.
-    const url = new URL(window.location.href);
-    if (url.searchParams.has("style")) {
-      url.searchParams.delete("style");
-      history.replaceState(null, "", url);
+    function markActive() {
+      buttons.forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset[attr] === root.dataset[name]));
+      });
     }
+
+    function set(id) {
+      root.dataset[name] = id;
+      store.set(KEYS[name], id);
+      markActive();
+      // Drop a URL override so a reload keeps the new choice.
+      const url = new URL(window.location.href);
+      if (url.searchParams.has(name)) {
+        url.searchParams.delete(name);
+        history.replaceState(null, "", url);
+      }
+    }
+
+    buttons.forEach((button) => button.addEventListener("click", () => set(button.dataset[attr])));
+    markActive();
   }
 
-  styleCards.forEach((card) => card.addEventListener("click", () => setStyle(card.dataset.setStyle)));
-  markActiveStyle();
+  chooser("style", styleCards);
+  chooser("palette", paletteButtons);
 
   // ---------- Sections ----------
   function selectedSections() {

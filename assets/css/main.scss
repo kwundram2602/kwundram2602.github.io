@@ -14,5 +14,12 @@ $resume-order: 1;
 $sidebar-order: 2;
 {% endif %}
 
+// Colour palettes from _data/data.yml (entries without colours, e.g. "auto", are skipped)
+$palettes: (
+{%- for p in site.data.data.palettes %}{% if p.theme %}
+  "{{ p.id }}": (text: {{ p.text }}, theme: {{ p.theme }}, soft: {{ p.soft | default: p.theme }}, accent: {{ p.accent | default: p.theme }}, dark: {% if p.dark %}true{% else %}false{% endif %}{% if p.bg %}, bg: {{ p.bg }}{% endif %}{% if p.surface %}, surface: {{ p.surface }}{% endif %}),
+{%- endif %}{% endfor %}
+);
+
 @import "skins/{{ site.theme_skin | default: 'blue' }}"; // skin
 @import "default"; // main partials

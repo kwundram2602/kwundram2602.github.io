@@ -1,5 +1,5 @@
 {%- comment -%}
-  Floating toolbar: switch the page style (2 clicks) and export with a chosen
+  Floating toolbar: switch the page style and colour palette (2 clicks) and export with a chosen
   set of sections and style (2–3 clicks). Logic in assets/js/cv-export.js.
 {%- endcomment -%}
 {% assign styles = site.data.data.styles %}
@@ -13,6 +13,16 @@
         <span class="style-thumb style-thumb-{{ st.id }}" aria-hidden="true"><i></i><i></i><i></i></span>
         <span class="style-name">{{ st.name }}</span>
         <span class="style-desc">{{ st.description }}</span>
+      </button>
+      {% endfor %}
+    </div>
+
+    <p class="cv-panel-title palette-title">Colours</p>
+    <div class="palette-list">
+      {% for pal in site.data.data.palettes %}
+      <button type="button" class="palette" data-set-palette="{{ pal.id }}" aria-pressed="false"{% if pal.description %} title="{{ pal.description }}"{% endif %}>
+        <span class="swatch swatch-{{ pal.id }}" aria-hidden="true"></span>
+        <span class="palette-name">{{ pal.name }}</span>
       </button>
       {% endfor %}
     </div>

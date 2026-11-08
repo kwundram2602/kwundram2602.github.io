@@ -177,6 +177,59 @@
   }
 }
 
+/* Colour palettes */
+.cv-panel .palette-title {
+  margin-top: 16px;
+}
+.palette-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+.palette {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  padding: 5px 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 12.5px;
+  text-align: left;
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  &:hover {
+    border-color: var(--muted);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--ctl-bg);
+    outline-offset: 2px;
+  }
+  &[aria-pressed="true"] {
+    border-color: var(--ctl-bg);
+    box-shadow: inset 0 0 0 1px var(--ctl-bg);
+  }
+}
+.palette-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.swatch {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+// "Auto": the style's own colours, light or dark like the system
+.swatch-auto {
+  background: linear-gradient(135deg, #fff 0 50%, #1A2028 50%);
+}
+
 /* Section checkboxes */
 .export-sections {
   display: grid;

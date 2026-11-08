@@ -11,16 +11,19 @@
   <meta name="description" content="{{ site.description |default: "A beautiful
   Jekyll theme for creating resume" }}">
 
-  <!-- Apply the chosen style before first paint (?style=… or the saved choice) -->
+  <!-- Apply the chosen style and palette before first paint (?style=… / ?palette=… or the saved choice) -->
   <script>
     (function () {
-      var ids = {{ site.data.data.styles | map: "id" | jsonify }};
-      var style = null;
-      try {
-        style = new URLSearchParams(location.search).get("style") || localStorage.getItem("cv-style");
-      } catch (e) {}
-      if (ids.indexOf(style) < 0) style = ids[0];
-      document.documentElement.setAttribute("data-style", style);
+      function pick(param, key, ids) {
+        var value = null;
+        try {
+          value = new URLSearchParams(location.search).get(param) || localStorage.getItem(key);
+        } catch (e) {}
+        if (ids.indexOf(value) < 0) value = ids[0];
+        document.documentElement.setAttribute("data-" + param, value);
+      }
+      pick("style", "cv-style", {{ site.data.data.styles | map: "id" | jsonify }});
+      pick("palette", "cv-palette", {{ site.data.data.palettes | map: "id" | jsonify }});
     })();
   </script>
 
