@@ -18,6 +18,8 @@ function generatePDF() {
       // Create a temporary container
       const container = document.createElement("div");
       container.innerHTML = html;
+      // Keep the PDF light even when the page is shown in dark mode
+      container.classList.add("force-light");
 
       // Get name from the DOM (as defined in data.yml)
       const name = document.querySelector(".name").textContent;

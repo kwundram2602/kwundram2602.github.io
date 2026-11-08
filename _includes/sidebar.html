@@ -5,6 +5,9 @@
 
     {% if sidebar.avatar %}
     <img class="avatar" src="{{ site.baseurl }}/assets/images/{{ sidebar.avatar }}" alt="profile picture" />
+    {% elsif sidebar.name %}
+    {% assign name_parts = sidebar.name | split: ' ' %}
+    <div class="avatar monogram" aria-hidden="true">{{ name_parts.first | slice: 0 }}{% if name_parts.size > 1 %}{{ name_parts.last | slice: 0 }}{% endif %}</div>
     {% endif %}
 
     {% if sidebar.name %}

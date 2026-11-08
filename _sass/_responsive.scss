@@ -4,31 +4,30 @@
     padding: 0;
   }
 
+  .wrapper {
+    display: block;
+    border-radius: 0;
+  }
+
   .sidebar-wrapper {
     position: static;
     width: inherit;
   }
 
-  .wrapper {
-    display: block;
-  }
-
   .main-wrapper {
-    padding: 30px;
+    padding: 30px 20px;
   }
 
-  .main-wrapper .time {
-    position: static;
-    display: block;
-    margin-top: 5px;
+  .action-buttons {
+    right: 16px;
+    bottom: 16px;
+    button {
+      padding: 12px 14px;
+      .label {
+        display: none;
+      }
+    }
   }
-
-  .main-wrapper .upper-row {
-    margin-bottom: 0;
-  }
-}
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -49,16 +48,5 @@
 
 .skillset .level-bar-inner {
   width: auto;
-  -webkit-transition: width 2s ease-in-out;
-  -moz-transition: width 2s ease-in-out;
-  -o-transition: width 2s ease-in-out;
   transition: width 2s ease-in-out;
-}
-
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-}
-
-/* Ex-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1400px) {
 }

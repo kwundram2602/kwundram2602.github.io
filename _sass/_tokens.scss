@@ -1,0 +1,59 @@
+/* ======= Design tokens ======= */
+// Skins only define $theme-color; fall back for the optional ones.
+$secondary-color: lighten($theme-color, 15%) !default;
+$accent-color: $theme-color !default;
+
+@mixin light-tokens {
+  --theme: #{$theme-color};
+  --theme-strong: #{darken($theme-color, 8%)};
+  --secondary: #{$secondary-color};
+  --accent: #{$accent-color};
+  --link: #{darken($theme-color, 5%)};
+  --link-hover: #{$secondary-color};
+  --text: #{$text-color};
+  --text-2: #{$text-color-secondary};
+  --muted: #{$text-grey};
+  --bg: #{$smoky-white};
+  --surface: #fff;
+  --divider: #{$divider};
+  --chip-bg: #{rgba($theme-color, 0.08)};
+  --chip-text: #{$theme-color};
+  --shadow: 0 10px 30px rgba(15, 30, 45, 0.08), 0 2px 6px rgba(15, 30, 45, 0.06);
+}
+
+@mixin dark-tokens {
+  --theme: #{lighten($theme-color, 38%)};
+  --theme-strong: #{darken($theme-color, 10%)};
+  --secondary: #{lighten($secondary-color, 10%)};
+  --accent: #{$accent-color};
+  --link: #{lighten($secondary-color, 15%)};
+  --link-hover: #{lighten($secondary-color, 30%)};
+  --text: #E3E9EF;
+  --text-2: #B6C2CE;
+  --muted: #8494A6;
+  --bg: #0D141B;
+  --surface: #151F29;
+  --divider: #25323F;
+  --chip-bg: #{rgba($secondary-color, 0.16)};
+  --chip-text: #{lighten($secondary-color, 25%)};
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+:root {
+  @include light-tokens;
+  color-scheme: light dark;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    @include dark-tokens;
+  }
+}
+
+// Used by the PDF generator: the print layout is rendered inside the
+// (possibly dark) current document, so force the light palette.
+.force-light {
+  @include light-tokens;
+  color: var(--text-2);
+  background: #fff;
+}

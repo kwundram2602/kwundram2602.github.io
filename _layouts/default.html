@@ -9,13 +9,14 @@
 {% include head.html %}
 
 <body>
-  <button onclick="print()" class="print-button d-print-none">
-    <i class="fas fa-file-pdf"></i>Print
-  </button>
-
-  <button onclick="generatePDF()" class="pdf-button d-print-none" id="pdfButton">
-    <i class="fas fa-file-pdf"></i>PDF
-  </button>
+  <div class="action-buttons d-print-none" role="group" aria-label="Export CV">
+    <button type="button" onclick="print()" class="print-button" aria-label="Print CV">
+      <i class="fas fa-print"></i><span class="label">Print</span>
+    </button>
+    <button type="button" onclick="generatePDF()" class="pdf-button" id="pdfButton" aria-label="Download CV as PDF">
+      <i class="fas fa-file-pdf"></i><span class="label">PDF</span>
+    </button>
+  </div>
 
   <div class="wrapper">
     {% include sidebar.html %}
@@ -29,6 +30,25 @@
 
   {% include scripts.html %}
   <script src="{{ site.baseurl }}/assets/js/pdf-generator.js"></script>
+  <script>
+    // Fade sections in as they scroll into view (CSS disables it for reduced motion).
+    (function () {
+      var main = document.querySelector(".main-wrapper");
+      if (!main || !("IntersectionObserver" in window)) return;
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -40px 0px" });
+      main.querySelectorAll(".section").forEach(function (section) {
+        observer.observe(section);
+      });
+      main.classList.add("reveal-ready");
+    })();
+  </script>
 </body>
 
 </html>

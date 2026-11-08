@@ -8,6 +8,28 @@
     {{ skills.title }}
   </h2>
 
+  {% if skills.groups %}
+  <div class="skill-groups">
+    {% for group in skills.groups %}
+    <div class="skill-group">
+      <h3 class="skill-group-title">{{ group.name }}</h3>
+      <ul class="chips">
+        {% for item in group.items %}
+        <li class="chip">
+          {{ item.name }}{% if item.years %}<span class="chip-years">{{ item.years }} yrs</span>{% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% assign detailed = group.items | where_exp: "i", "i.detail" %}
+      {% if detailed.size > 0 %}
+      <p class="skill-details">
+        {% for item in detailed %}<strong>{{ item.name }}:</strong> {{ item.detail }}{% unless forloop.last %} · {% endunless %}{% endfor %}
+      </p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
   <div class="skillset">
     {% for skill in skills.toolset %}
     <div class="item">
@@ -21,6 +43,7 @@
     <!--//item-->
     {% endfor %}
   </div>
+  {% endif %}
 </section>
 <!--//skills-section-->
 {% endif %}

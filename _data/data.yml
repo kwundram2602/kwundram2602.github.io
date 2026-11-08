@@ -178,28 +178,33 @@ publications:
 skills:
   title: Skills &amp; Proficiency
 
-  toolset:
-  # 2023/2024
-  - name: Python (3.5 yrs) — matplotlib, geopandas, torch, numpy
-    level: 80%
-  # 2021/2022
-  - name: QGIS (4 yrs) — remote sensing projects, automation with Python, plugin basics
-    level: 80%
-
-  - name: R (4 yrs) — geostatistics, dynamic spatial processes, earth observation
-    level: 60%
-  # 2023/2024
-  - name: Google Earth Engine (2.5 yrs) — remote sensing projects, cloud computing
-    level: 60%
-
-  - name: Git (3 yrs)
-    level: 60%
-
-  - name: Slurm / HPC (2 yrs) — SLURM workflows
-    level: 60%
-
-  - name: SNAP (0.5 yrs) — basic operations on RADAR data
-    level: 40%
+  groups:
+  - name: Programming
+    items:
+    - name: Python
+      years: 3.5
+      detail: matplotlib, geopandas, torch, numpy
+    - name: R
+      years: 4
+      detail: geostatistics, dynamic spatial processes, earth observation
+  - name: GIS &amp; Earth Observation
+    items:
+    - name: QGIS
+      years: 4
+      detail: remote sensing projects, automation with Python, plugin basics
+    - name: Google Earth Engine
+      years: 2.5
+      detail: remote sensing projects, cloud computing
+    - name: SNAP
+      years: 0.5
+      detail: basic operations on RADAR data
+  - name: Infrastructure
+    items:
+    - name: Git
+      years: 3
+    - name: Slurm / HPC
+      years: 2
+      detail: SLURM workflows
 
 footer: >
   Kjell Wundram — built with the <a href="https://github.com/sharu725/online-cv" target="_blank" rel="nofollow">online-cv</a> Jekyll theme, designed by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a>.

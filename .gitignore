@@ -3,3 +3,12 @@ _site/
 .sass-cache/
 .jekyll-metadata
 .jekyll-cache
+
+# Local / personal
+.env
+.venv
+data/out
+data/notes.md
+data/todo.md
+.claudeignore
+**/__pycache__

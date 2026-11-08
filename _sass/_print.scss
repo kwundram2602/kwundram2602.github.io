@@ -2,6 +2,9 @@
   @page {
     size: A4;
   }
+  :root {
+    @include light-tokens;
+  }
   body {
     font-size: 9pt;
     background-color: white;
@@ -9,23 +12,24 @@
   }
   .wrapper {
     max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
   }
 
-  //   img.avatar {
-  //     filter: grayscale(1);
-  //     -webkit-filter: greyscale(1);
-  //   }
   .main-wrapper .time {
-    padding: 10px 30px 10px 10px;
-    //  float: right;
-    //  color: black !important;
     -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .sidebar-wrapper,
+  .sidebar-wrapper .profile-container,
+  .main-wrapper .section-title::after,
+  .main-wrapper .item::after,
+  .skill-groups .chip {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .sidebar-wrapper {
     position: static;
-    //  float: right;
-    //  width: 40%;
-    -webkit-print-color-adjust: exact;
   }
 
   .remove-container.container-block {
@@ -37,7 +41,9 @@
   }
 
   .skillset,
-  .container-block {
+  .skill-group,
+  .container-block,
+  .main-wrapper .item {
     break-inside: avoid;
   }
 
@@ -46,16 +52,20 @@
     -webkit-print-color-adjust: exact;
   }
 
-   .fa-inverse,
-   .fa-inverse:after,
-   .fa-inverse:before {
-     color: #ffffff !important;
-   }
+  .fa-inverse,
+  .fa-inverse:after,
+  .fa-inverse:before {
+    color: #ffffff !important;
+  }
 
-    /* Hide buttons when printing */
-    .print-button,
-    .pdf-button,
-    .d-print-none {
-        display: none !important;
-    }
+  .section {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Hide buttons when printing */
+  .action-buttons,
+  .d-print-none {
+    display: none !important;
+  }
 }
