@@ -1,71 +1,141 @@
+/* ======= Print / Save as PDF ======= */
 @media print {
   @page {
     size: A4;
+    margin: 14mm 15mm 14mm;
   }
-  :root {
-    @include light-tokens;
+
+  html,
+  body {
+    background: #fff !important;
   }
   body {
-    font-size: 9pt;
-    background-color: white;
     padding: 0;
   }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
   .wrapper {
-    max-width: 100%;
+    display: block;
+    max-width: none;
+    margin: 0;
     border-radius: 0;
     box-shadow: none;
+    overflow: visible;
+    background: #fff;
+  }
+  .main-wrapper {
+    padding: 0 !important;
+    background: #fff;
   }
 
-  .main-wrapper .time {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
   .sidebar-wrapper,
-  .sidebar-wrapper .profile-container,
-  .main-wrapper .section-title::after,
-  .main-wrapper .item::after,
-  .skill-groups .chip {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-  .sidebar-wrapper {
-    position: static;
+  .cv-controls,
+  .footer,
+  .d-print-none {
+    display: none !important;
   }
 
-  .remove-container.container-block {
-    display: none;
+  // Sections deselected in the Export panel
+  .export-hidden {
+    display: none !important;
   }
-
-  footer {
-    display: none;
-  }
-
-  .skillset,
-  .skill-group,
-  .container-block,
-  .main-wrapper .item {
-    break-inside: avoid;
-  }
-
-  .skillset .level-bar-inner {
-    background-color: $theme-color !important;
-    -webkit-print-color-adjust: exact;
-  }
-
-  .fa-inverse,
-  .fa-inverse:after,
-  .fa-inverse:before {
-    color: #ffffff !important;
+  .cv-nav a.print-last::after {
+    display: none !important;
   }
 
   .section {
     opacity: 1 !important;
     transform: none !important;
   }
+  .section-title {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .entry,
+  .kv,
+  .lang,
+  .project,
+  .skill-group,
+  .skills-table tr,
+  .cv-header {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .skills-table thead {
+    display: table-header-group;
+  }
 
-  /* Hide buttons when printing */
-  .action-buttons,
-  .d-print-none {
-    display: none !important;
+  a {
+    text-decoration: none !important;
+  }
+
+  // EO: the sidebar becomes a coloured header band
+  html[data-style="eo"] {
+    body {
+      font-size: 13px;
+    }
+    .section {
+      margin-bottom: 26px;
+    }
+    .main-wrapper .section-title {
+      font-size: 17px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+    }
+    .entry {
+      padding-bottom: 16px;
+    }
+    .entry:hover::after {
+      transform: none;
+    }
+    .cv-header {
+      display: block;
+      margin-bottom: 26px;
+      padding: 18px 22px;
+      border-radius: 6px;
+      color: #fff;
+      background-color: $theme-color;
+      background-image: linear-gradient(120deg, rgba($secondary-color, 0.45), rgba(0, 0, 0, 0) 60%);
+    }
+    .cv-header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .cv-name {
+      margin: 0;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+    .cv-tagline {
+      margin: 4px 0 0;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 14px;
+    }
+    .cv-contact {
+      text-align: right;
+      font-size: 12px;
+      line-height: 1.55;
+      i {
+        margin-right: 5px;
+        opacity: 0.85;
+      }
+      a {
+        color: #fff;
+      }
+    }
+    .cv-nav {
+      display: none;
+    }
+  }
+
+  html[data-style="classic"] .cv-header-top {
+    margin-bottom: 26px;
   }
 }

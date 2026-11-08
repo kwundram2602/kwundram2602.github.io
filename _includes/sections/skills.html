@@ -1,0 +1,62 @@
+{%- comment -%}
+  Two renderings of the same data; the active style shows one of them:
+  chips (EO) and a table with level squares (Classic, Minimal).
+{%- endcomment -%}
+<div class="skill-groups">
+  {% for group in include.data %}
+  <div class="skill-group">
+    <h3 class="skill-group-title">{{ group.name }}</h3>
+    <ul class="chips">
+      {% for item in group.items %}
+      <li class="chip">
+        {{ item.name }}{% if item.since %}{% include skill-duration.html since=item.since %}<span class="chip-years" data-since="{{ item.since }}">{{ skill_duration }}</span>{% elsif item.years %}<span class="chip-years">{{ item.years }} yrs</span>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% assign detailed = group.items | where_exp: "i", "i.detail" %}
+    {% if detailed.size > 0 %}
+    <p class="skill-details">
+      {% for item in detailed %}<strong>{{ item.name }}:</strong> {{ item.detail }}{% unless forloop.last %} · {% endunless %}{% endfor %}
+    </p>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+<table class="skills-table">
+  <thead>
+    <tr>
+      <th class="col-group"><span class="sr-only">Category</span></th>
+      <th class="col-level">Level</th>
+      <th class="col-skill">Skill</th>
+      <th class="col-years">Years</th>
+      <th class="col-comment">Comment</th>
+    </tr>
+  </thead>
+  {% for group in include.data %}
+  <tbody>
+    {% for item in group.items %}
+    <tr>
+      <th scope="row" class="col-group">{% if forloop.first %}{{ group.name }}:{% endif %}</th>
+      <td class="col-level">
+        {% if item.level %}
+        <span class="level" role="img" aria-label="{{ item.level }} of 5">
+          {%- for i in (1..5) -%}<span class="sq{% if i <= item.level %} on{% endif %}"></span>{%- endfor -%}
+        </span>
+        {% endif %}
+      </td>
+      <td class="col-skill">{{ item.name }}</td>
+      <td class="col-years">
+        {%- if item.since -%}
+        {% include skill-duration.html since=item.since %}<span data-since="{{ item.since }}" data-format="number">{{ skill_years }}</span>
+        {%- elsif item.years -%}{{ item.years }}{%- endif -%}
+      </td>
+      <td class="col-comment">
+        {{ item.detail }}
+        {%- if item.link %} <a href="{{ item.link }}" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> {{ item.link_label | default: item.link }}</a>{% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  {% endfor %}
+</table>

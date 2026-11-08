@@ -2,37 +2,29 @@
 #Add "layout: compress" here to compress the html code
 ---
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en"> <!--<![endif]-->
+{% assign default_style = site.data.data.styles.first.id | default: 'eo' %}
+<html lang="en" data-style="{{ default_style }}">
 {% include head.html %}
 
 <body>
-  <div class="action-buttons d-print-none" role="group" aria-label="Export CV">
-    <button type="button" onclick="print()" class="print-button" aria-label="Print CV">
-      <i class="fas fa-print"></i><span class="label">Print</span>
-    </button>
-    <button type="button" onclick="generatePDF()" class="pdf-button" id="pdfButton" aria-label="Download CV as PDF">
-      <i class="fas fa-file-pdf"></i><span class="label">PDF</span>
-    </button>
-  </div>
+  {% include export-controls.html %}
 
   <div class="wrapper">
     {% include sidebar.html %}
 
-    <div class="main-wrapper">
+    <main class="main-wrapper">
+      {% include cv-header.html %}
       {{ content }}
-    </div>
+    </main>
   </div>
 
   {% include footer.html %}
 
   {% include scripts.html %}
   <script src="{{ site.baseurl }}/assets/js/skill-years.js"></script>
-  <script src="{{ site.baseurl }}/assets/js/pdf-generator.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/cv-export.js"></script>
   <script>
-    // Fade sections in as they scroll into view (CSS disables it for reduced motion).
+    // Fade sections in as they scroll into view (CSS disables it for reduced motion and print).
     (function () {
       var main = document.querySelector(".main-wrapper");
       if (!main || !("IntersectionObserver" in window)) return;

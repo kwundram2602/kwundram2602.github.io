@@ -1,0 +1,233 @@
+/* ======= Style: EO (sidebar, timeline, chips) ======= */
+html[data-style="eo"] {
+  .main-wrapper .section-title {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    position: relative;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--divider);
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 48px;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--accent);
+    }
+    .section-icon {
+      margin-right: 6px;
+    }
+    .fa-circle {
+      color: var(--theme);
+    }
+    .fa-inverse {
+      color: var(--surface);
+    }
+  }
+
+  // Timeline entries: body left, date chip right
+  .entry {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 12px;
+    padding-left: 28px;
+    padding-bottom: 26px;
+    // vertical line
+    &::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 8px;
+      bottom: -8px;
+      width: 2px;
+      background: var(--divider);
+    }
+    // dot
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 3px solid var(--theme);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    &:first-child::after {
+      border-color: var(--accent);
+      background: var(--accent);
+    }
+    &:last-child {
+      padding-bottom: 0;
+      &::before {
+        display: none;
+      }
+    }
+    &:hover::after {
+      background: var(--theme);
+      transform: scale(1.15);
+    }
+    &:first-child:hover::after {
+      background: var(--accent);
+    }
+  }
+  .entry-time {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    max-width: 12em;
+    text-align: right;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.6;
+    padding: 1px 10px;
+    border-radius: 10px;
+    background: var(--chip-bg);
+    color: var(--chip-text);
+  }
+  .entry-body {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .entry-head {
+    margin-bottom: 8px;
+    color: var(--muted);
+  }
+  .entry-title {
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.35;
+    margin-bottom: 2px;
+  }
+  .entry-place::before,
+  .entry-note::before {
+    content: ", ";
+  }
+  .entry-note {
+    font-style: italic;
+  }
+
+  // Thesis
+  .kv {
+    display: grid;
+    grid-template-columns: 9.5em minmax(0, 1fr);
+    column-gap: 14px;
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--divider);
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+  .kv-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    padding-top: 3px;
+  }
+  .kv-title {
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  // Languages
+  .lang {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 12px;
+    padding: 5px 0;
+  }
+  .lang-name {
+    min-width: 5.5em;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .lang-level {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 1px 10px;
+    border-radius: 999px;
+    background: var(--chip-bg);
+    color: var(--chip-text);
+  }
+  .lang-comment {
+    color: var(--muted);
+  }
+
+  // Skills as chips
+  .skill-group {
+    margin-bottom: 22px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .skill-group-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--divider);
+    background: var(--chip-bg);
+    color: var(--text);
+    font-weight: 500;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    &:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+  }
+  .chip-years {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--chip-text);
+  }
+  .skill-details {
+    margin: 8px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--muted);
+    strong {
+      font-weight: 500;
+      color: var(--text-2);
+    }
+  }
+
+  .project-title {
+    font-size: 16px;
+    color: var(--theme);
+  }
+}
+
+// Other styles never show the chips.
+html:not([data-style="eo"]) .skill-groups {
+  display: none;
+}

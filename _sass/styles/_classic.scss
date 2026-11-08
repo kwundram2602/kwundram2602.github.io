@@ -1,0 +1,394 @@
+/* ======= Style: Classic (modelled on the LaTeX/moderncv CV) ======= */
+@font-face {
+  font-family: "CMU Sans Serif";
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("../fonts/cmu-sans-serif-500-roman.woff2") format("woff2");
+}
+@font-face {
+  font-family: "CMU Sans Serif";
+  font-style: italic;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("../fonts/cmu-sans-serif-500-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "CMU Sans Serif";
+  font-style: normal;
+  font-weight: 600 900;
+  font-display: swap;
+  src: url("../fonts/cmu-sans-serif-700-roman.woff2") format("woff2");
+}
+@font-face {
+  font-family: "CMU Sans Serif";
+  font-style: italic;
+  font-weight: 600 900;
+  font-display: swap;
+  src: url("../fonts/cmu-sans-serif-700-italic.woff2") format("woff2");
+}
+
+$cl-label: 128px; // width of the date / label column (px: shared by different font sizes)
+$cl-gap: 14px;
+
+@mixin classic-light {
+  --theme: #0B1A7E;
+  --theme-soft: #7A82C7;
+  --accent: #0B1A7E;
+  --text: #111;
+  --text-2: #161616;
+  --muted: #333;
+  --bg: #E8EAF1;
+  --surface: #fff;
+  --divider: #C7CBE5;
+  --link: #0B1A7E;
+  --link-hover: #4B55B0;
+  --sq-off: #B5BAE2;
+  --ctl-bg: #0B1A7E;
+  --shadow: 0 10px 30px rgba(15, 20, 60, 0.1), 0 2px 6px rgba(15, 20, 60, 0.06);
+}
+
+html[data-style="classic"] {
+  @include classic-light;
+
+  body {
+    font-family: "CMU Sans Serif", "Latin Modern Sans", "LM Sans 10", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.35;
+    -webkit-font-smoothing: auto;
+  }
+  p {
+    line-height: 1.35;
+  }
+
+  .wrapper {
+    display: block;
+    max-width: 880px;
+    border-radius: 2px;
+  }
+  .sidebar-wrapper {
+    display: none;
+  }
+  .main-wrapper {
+    padding: 64px 72px 72px;
+  }
+
+  // Header: two-tone name left, contact right, section line below
+  .cv-header {
+    display: block;
+    margin-bottom: 30px;
+  }
+  .cv-header-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px 32px;
+    margin-bottom: 34px;
+  }
+  .cv-name {
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    color: var(--theme);
+    margin: 0;
+  }
+  .cv-first {
+    color: var(--theme-soft);
+  }
+  .cv-tagline {
+    display: none;
+  }
+  .cv-contact {
+    text-align: right;
+    padding-right: 0.2em; // room for the italic overhang
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--theme);
+    i {
+      font-style: normal;
+      font-size: 0.9em;
+      margin-right: 4px;
+    }
+    a {
+      color: inherit;
+    }
+  }
+  .cv-nav {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    a {
+      color: inherit;
+      text-decoration: none;
+      white-space: nowrap;
+      &:hover {
+        color: var(--theme);
+      }
+      &:not(:last-child)::after {
+        content: "";
+        display: inline-block;
+        width: 0.42em;
+        height: 0.42em;
+        margin: 0 0.7em 0 0.4em;
+        vertical-align: 0.15em;
+        background: currentColor;
+      }
+    }
+  }
+
+  // Section title: thick bar in the label column, title in the content column
+  .section {
+    margin-bottom: 22px;
+  }
+  .section-title {
+    display: grid;
+    grid-template-columns: $cl-label minmax(0, 1fr);
+    column-gap: $cl-gap;
+    align-items: center;
+    font-size: 23px;
+    font-weight: 500;
+    color: var(--theme);
+    margin: 0 0 8px;
+    &::before {
+      content: "";
+      height: 6px;
+      background: var(--theme);
+    }
+    .section-icon {
+      display: none;
+    }
+  }
+
+  // Entries: right-aligned date column
+  .entry {
+    display: grid;
+    grid-template-columns: $cl-label minmax(0, 1fr);
+    column-gap: $cl-gap;
+    margin-bottom: 8px;
+  }
+  .entry-time {
+    text-align: right;
+    color: var(--text);
+  }
+  .entry-title {
+    display: inline;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .entry-org,
+  .entry-place,
+  .entry-note {
+    &::before {
+      content: ", ";
+      font-style: normal;
+    }
+  }
+  .entry-org,
+  .entry-note {
+    font-style: italic;
+  }
+  .entry-details {
+    p {
+      margin: 0;
+    }
+    strong {
+      font-weight: 700;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    li {
+      position: relative;
+      padding-left: 1.2em;
+      margin: 0;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0.15em;
+        top: 0.42em;
+        width: 0.6em;
+        height: 0.6em;
+        border: 1.3px solid var(--theme);
+        border-radius: 50%;
+      }
+    }
+  }
+
+  // Thesis: label / value rows
+  .kv {
+    display: grid;
+    grid-template-columns: $cl-label minmax(0, 1fr);
+    column-gap: $cl-gap;
+    margin-bottom: 6px;
+  }
+  .kv-label {
+    text-align: right;
+    color: var(--text);
+  }
+  .kv:has(.kv-small) .kv-label {
+    font-size: 0.9em;
+  }
+  .kv-title {
+    font-style: italic;
+  }
+  .kv-small {
+    font-size: 0.9em;
+  }
+
+  // Languages: name | level | comment (right)
+  .lang {
+    display: grid;
+    grid-template-columns: $cl-label 3em minmax(0, 1fr);
+    column-gap: $cl-gap;
+  }
+  .lang-name {
+    text-align: right;
+  }
+  .lang-comment {
+    text-align: right;
+    padding-right: 0.2em;
+    font-style: italic;
+  }
+
+  // Skills table with level squares and dashed rules
+  .skills-table {
+    display: table;
+    font-size: 14px;
+    th,
+    td {
+      padding: 3px 6px;
+      font-weight: 500;
+    }
+    thead th {
+      text-align: center;
+      padding-bottom: 5px;
+      border-bottom: 1px dashed var(--theme);
+    }
+    tbody tr:first-child > * {
+      padding-top: 7px;
+    }
+    tbody + tbody tr:first-child > * {
+      border-top: 1px dashed var(--theme);
+    }
+    .col-group {
+      width: $cl-label;
+      text-align: right;
+      padding-left: 0;
+      padding-right: $cl-gap;
+    }
+    .col-level {
+      width: 5.5em;
+      white-space: nowrap;
+      text-align: left;
+    }
+    .col-skill {
+      width: 10em;
+      text-align: center;
+    }
+    .col-years {
+      width: 3.4em;
+      text-align: center;
+    }
+    .col-comment {
+      font-style: italic;
+      text-align: left;
+      hyphens: auto;
+      a {
+        font-style: italic;
+      }
+    }
+  }
+  .sq {
+    width: 11px;
+    height: 11px;
+  }
+
+  .project-title {
+    font-weight: 700;
+  }
+  .project-tagline {
+    font-style: italic;
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  html[data-style="classic"] {
+    --theme: #A3B1FF;
+    --theme-soft: #6F79C2;
+    --accent: #A3B1FF;
+    --text: #E7E9F3;
+    --text-2: #D9DCEA;
+    --muted: #AEB3CB;
+    --bg: #0A0D18;
+    --surface: #141A2C;
+    --divider: #2C3354;
+    --link: #A3B1FF;
+    --link-hover: #CBD3FF;
+    --sq-off: #343C6A;
+    --ctl-bg: #2B3A9E;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  }
+}
+
+@media print {
+  html[data-style="classic"] {
+    @include classic-light;
+    body {
+      font-size: 14px;
+    }
+    .cv-name {
+      font-size: 46px;
+    }
+    .cv-header-top {
+      margin-bottom: 24px;
+    }
+    .cv-nav {
+      font-size: 12.5px;
+    }
+    .skills-table {
+      font-size: 13px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  html[data-style="classic"] {
+    .main-wrapper {
+      padding: 32px 20px;
+    }
+    .cv-name {
+      font-size: 38px;
+    }
+    .cv-contact {
+      text-align: left;
+    }
+    .cv-nav {
+      text-align: left;
+      line-height: 1.7;
+    }
+    .section-title {
+      grid-template-columns: 48px minmax(0, 1fr);
+    }
+    .entry,
+    .kv {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .entry-time,
+    .kv-label {
+      text-align: left;
+      font-size: 13px;
+      color: var(--theme);
+    }
+    .lang {
+      grid-template-columns: 5em 2.5em minmax(0, 1fr);
+    }
+  }
+}

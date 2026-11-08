@@ -1,0 +1,9 @@
+<ul class="lang-list">
+  {% for l in include.data %}
+  <li class="lang">
+    <span class="lang-name">{{ l.name }}</span>
+    <span class="lang-level">{{ l.level }}</span>
+    {% if l.comment %}<span class="lang-comment">{{ l.comment }}</span>{% endif %}
+  </li>
+  {% endfor %}
+</ul>

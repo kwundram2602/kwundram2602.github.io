@@ -1,0 +1,31 @@
+{% assign t = include.data %}
+<dl class="kv-list">
+  <div class="kv">
+    <dt class="kv-label">title</dt>
+    <dd class="kv-value kv-title">{{ t.title }}</dd>
+  </div>
+  {% if t.university %}
+  <div class="kv">
+    <dt class="kv-label">university</dt>
+    <dd class="kv-value">{{ t.university }}</dd>
+  </div>
+  {% endif %}
+  {% if t.grade %}
+  <div class="kv">
+    <dt class="kv-label">grade</dt>
+    <dd class="kv-value">{{ t.grade }}</dd>
+  </div>
+  {% endif %}
+  {% if t.supervisors %}
+  <div class="kv">
+    <dt class="kv-label">supervisors</dt>
+    <dd class="kv-value">{{ t.supervisors }}</dd>
+  </div>
+  {% endif %}
+  {% if t.description %}
+  <div class="kv">
+    <dt class="kv-label">short description</dt>
+    <dd class="kv-value kv-small">{{ t.description }}</dd>
+  </div>
+  {% endif %}
+</dl>

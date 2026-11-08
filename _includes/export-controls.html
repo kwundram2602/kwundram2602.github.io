@@ -1,0 +1,64 @@
+{%- comment -%}
+  Floating toolbar: switch the page style (2 clicks) and export with a chosen
+  set of sections and style (2–3 clicks). Logic in assets/js/cv-export.js.
+{%- endcomment -%}
+{% assign styles = site.data.data.styles %}
+<div class="cv-controls d-print-none">
+
+  <div class="cv-panel" id="style-panel" role="dialog" aria-label="Choose a style" hidden>
+    <p class="cv-panel-title">Style</p>
+    <div class="style-cards">
+      {% for st in styles %}
+      <button type="button" class="style-card" data-set-style="{{ st.id }}" aria-pressed="false">
+        <span class="style-thumb style-thumb-{{ st.id }}" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="style-name">{{ st.name }}</span>
+        <span class="style-desc">{{ st.description }}</span>
+      </button>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="cv-panel" id="export-panel" role="dialog" aria-label="Export CV" hidden>
+    <p class="cv-panel-title">Export</p>
+
+    <fieldset class="export-sections">
+      <legend>Sections</legend>
+      {% for s in site.data.data.sections %}
+      {% assign key = s.data | default: s.id %}
+      {% if site.data.data[key] %}
+      <label class="check">
+        <input type="checkbox" name="export-section" value="{{ s.id }}"{% if s.export %} checked data-default{% endif %}>
+        <span>{{ s.title }}</span>
+      </label>
+      {% endif %}
+      {% endfor %}
+      <button type="button" class="link-btn" data-reset-sections>Reset to default</button>
+    </fieldset>
+
+    <fieldset class="export-style">
+      <legend>Style</legend>
+      <div class="segmented">
+        {% for st in styles %}
+        <label>
+          <input type="radio" name="export-style" value="{{ st.id }}">
+          <span>{{ st.name }}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </fieldset>
+
+    <button type="button" class="cv-primary" data-print>
+      <i class="fas fa-print" aria-hidden="true"></i> Print / Save as PDF
+    </button>
+    <p class="cv-hint">Pick “Save as PDF” as the printer in the dialog.</p>
+  </div>
+
+  <div class="cv-toolbar" role="toolbar" aria-label="Style and export">
+    <button type="button" class="cv-btn" aria-expanded="false" aria-controls="style-panel">
+      <i class="fas fa-palette" aria-hidden="true"></i><span class="label">Style</span>
+    </button>
+    <button type="button" class="cv-btn" aria-expanded="false" aria-controls="export-panel">
+      <i class="fas fa-file-pdf" aria-hidden="true"></i><span class="label">Export</span>
+    </button>
+  </div>
+</div>

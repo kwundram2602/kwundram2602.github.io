@@ -18,6 +18,8 @@ $accent-color: $theme-color !default;
   --divider: #{$divider};
   --chip-bg: #{rgba($theme-color, 0.08)};
   --chip-text: #{$theme-color};
+  --sq-off: #{rgba($theme-color, 0.25)};
+  --ctl-bg: #{$theme-color};
   --shadow: 0 10px 30px rgba(15, 30, 45, 0.08), 0 2px 6px rgba(15, 30, 45, 0.06);
 }
 
@@ -36,6 +38,8 @@ $accent-color: $theme-color !default;
   --divider: #25323F;
   --chip-bg: #{rgba($secondary-color, 0.16)};
   --chip-text: #{lighten($secondary-color, 25%)};
+  --sq-off: #{rgba($secondary-color, 0.3)};
+  --ctl-bg: #{$theme-color};
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
@@ -48,12 +52,4 @@ $accent-color: $theme-color !default;
   :root {
     @include dark-tokens;
   }
-}
-
-// Used by the PDF generator: the print layout is rendered inside the
-// (possibly dark) current document, so force the light palette.
-.force-light {
-  @include light-tokens;
-  color: var(--text-2);
-  background: #fff;
 }

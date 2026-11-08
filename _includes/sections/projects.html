@@ -1,0 +1,18 @@
+{% assign p = include.data %}
+{% if p.intro %}
+<p class="intro">{{ p.intro }}</p>
+{% endif %}
+<ul class="project-list">
+  {% for project in p.items %}
+  <li class="project">
+    <span class="project-title">
+      {%- if project.link -%}
+      <a href="{{ project.link }}" target="_blank" rel="noopener">{{ project.title }}</a>
+      {%- else -%}
+      {{ project.title }}
+      {%- endif -%}
+    </span>
+    {%- if project.tagline %} — <span class="project-tagline">{{ project.tagline }}</span>{% endif %}
+  </li>
+  {% endfor %}
+</ul>

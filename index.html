@@ -2,21 +2,16 @@
 layout: default
 ---
 
-
-{% include career-profile.html %}
-
-{% unless site.data.data.sidebar.education %}
-  {% include education.html %}
-{% endunless %}
-
-{% include publications.html %}
-
-{% include experiences.html %}
-
-{% include certifications.html %}
-
-{% include projects.html %}
-
-{% include oss-contributions.html %}
-
-{% include skills.html %}
+{%- comment -%}
+  Sections, their order and titles come from `sections` in _data/data.yml.
+{%- endcomment -%}
+{% for s in site.data.data.sections %}
+  {% assign key = s.data | default: s.id %}
+  {% assign sdata = site.data.data[key] %}
+  {% if sdata %}
+  <section class="section section-{{ s.include }}" id="{{ s.id }}" data-section="{{ s.id }}">
+    {% include section-title.html title=s.title icon=s.icon %}
+    {% include sections/{{ s.include }}.html data=sdata %}
+  </section>
+  {% endif %}
+{% endfor %}

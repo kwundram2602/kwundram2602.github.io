@@ -1,0 +1,24 @@
+{%- comment -%}
+  Dated entries (education, internships, work).
+  Fields: title, org, place, note, time, details (markdown).
+{%- endcomment -%}
+<div class="entries">
+  {% for e in include.data %}
+  <div class="entry">
+    <div class="entry-time">{{ e.time }}</div>
+    <div class="entry-body">
+      <div class="entry-head">
+        <h3 class="entry-title">{{ e.title }}</h3>
+        {%- if e.org %}<span class="entry-org">{{ e.org }}</span>{% endif -%}
+        {%- if e.place %}<span class="entry-place">{{ e.place }}</span>{% endif -%}
+        {%- if e.note %}<span class="entry-note">{{ e.note }}</span>{% endif -%}
+      </div>
+      {% if e.details %}
+      <div class="entry-details">
+        {{ e.details | markdownify }}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>

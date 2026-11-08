@@ -1,5 +1,5 @@
 /* Extra small devices (phones, less than 768px) */
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   body {
     padding: 0;
   }
@@ -18,35 +18,65 @@
     padding: 30px 20px;
   }
 
-  .action-buttons {
-    right: 16px;
-    bottom: 16px;
-    button {
-      padding: 12px 14px;
-      .label {
+  html[data-style="eo"] .entry {
+    grid-template-columns: minmax(0, 1fr);
+    .entry-time {
+      grid-column: 1;
+      grid-row: 1;
+      justify-self: start;
+      margin-bottom: 6px;
+    }
+    .entry-body {
+      grid-row: 2;
+    }
+  }
+
+  html[data-style="eo"] .kv {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  // Skills table becomes stacked rows
+  html:not([data-style="eo"]) {
+    .skills-table,
+    .skills-table tbody,
+    .skills-table tr,
+    .skills-table th,
+    .skills-table td {
+      display: block;
+      width: auto !important;
+    }
+    .skills-table thead {
+      display: none;
+    }
+    .skills-table tr {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      column-gap: 10px;
+      padding: 6px 0;
+    }
+    .skills-table .col-group {
+      grid-column: 1 / -1;
+      text-align: left;
+      &:empty {
         display: none;
       }
     }
-  }
-}
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  .skillset .level-title {
-    float: left;
-    width: 30%;
-    margin-bottom: 0;
+    .skills-table .col-skill {
+      text-align: left;
+    }
+    .skills-table .col-comment {
+      grid-column: 1 / -1;
+    }
   }
 
-  .skillset .level-bar {
-    width: 70%;
-    float: left;
-    position: relative;
-    top: 1px;
+  .cv-controls {
+    right: 16px;
+    bottom: 16px;
   }
-}
-
-.skillset .level-bar-inner {
-  width: auto;
-  transition: width 2s ease-in-out;
+  .cv-btn {
+    padding: 12px 14px;
+    .label {
+      display: none;
+    }
+  }
 }

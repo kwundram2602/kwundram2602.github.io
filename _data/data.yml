@@ -2,17 +2,73 @@
 # Be aware that even a small syntax error here can lead to failures in output.
 #
 
+# Order, titles and export defaults of the main sections.
+#   include: template in _includes/sections/ used to render the section
+#   data:    key below that holds the content (defaults to id)
+#   export:  pre-selected in the Export panel (print / PDF)
+sections:
+- id: profile
+  title: Profile
+  include: summary
+  icon: user
+  export: false
+- id: education
+  title: Education
+  include: entries
+  icon: graduation-cap
+  export: true
+- id: thesis
+  title: Bachelor's thesis
+  include: thesis
+  icon: file-alt
+  export: true
+- id: internships
+  title: Internships and Workshops
+  include: entries
+  icon: satellite
+  export: true
+- id: work
+  title: Work Experience
+  include: entries
+  icon: briefcase
+  export: true
+- id: languages
+  title: Languages
+  include: languages
+  icon: language
+  export: true
+- id: skills
+  title: Selected Skills
+  include: skills
+  icon: wrench
+  export: true
+- id: projects
+  title: Projects
+  include: projects
+  icon: code-branch
+  export: false
+
+# Selectable styles (page and PDF). The first one is the default.
+styles:
+- id: eo
+  name: EO
+  description: Sidebar, timeline, colour
+- id: classic
+  name: Classic
+  description: Like the LaTeX CV
+- id: minimal
+  name: Minimal
+  description: Black & white, one column
+
 sidebar:
-  position: right # position of the sidebar : left or right
-  about: False # set to False or comment line if you want to remove the "how to use?" in the sidebar
-  education: False # set to False if you want education in main section instead of in sidebar
+  position: right # position of the sidebar (EO style): left or right
 
   # Profile information
   name: Kjell Wundram
   tagline: M.Sc. Applied Earth Observation & Geoanalysis
   avatar: #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
 
-  # Sidebar links
+  # Contact links
   email: kjell.wundram@protonmail.com
   phone:
   timezone: Europe/Berlin # Enter your timezone, e.g., America/Havana, Africa/Casablanca, America/North_Dakota/Center
@@ -34,20 +90,7 @@ sidebar:
   leetcode: # Please provide your LeetCode username.
   pdf: # Add a PDF link here if you want to include a PDF custom version in your resume.
 
-  languages:
-    title: Languages
-    info:
-    - idiom: German
-      level: C2 — Native language
-
-    - idiom: English
-      level: C1 — Listening, Reading, Writing, Speaking
-
-    - idiom: French
-      level: A2
-
-career-profile:
-  title: Career Profile
+profile:
   summary: |
     Geoinformatics graduate student, currently in the
     M.Sc. Applied Earth Observation and Geoanalysis programme at the University
@@ -58,155 +101,174 @@ career-profile:
     image segmentation - whilst also gaining experience in the analysis of SAR,
     optical and thermal data, and cloud-based processing of EO data.
 
+# Entries (education, internships, work): title, org, place, time, note, details (markdown)
 education:
-  title: Education
-  info:
-  - degree: M.Sc. Applied Earth Observation and Geoanalysis
-    university: Institute of Geography and Geology, University of Würzburg
-    time: 2025 - ongoing
-    details: |
-      M.Sc. programme in collaboration with the Earth Observation Center at the
-      German Aerospace Center (DLR-EOC). No grade yet.
+- title: Master of Science Applied Earth Observation and Geoanalysis
+  org: Institute of Geography and Geology
+  place: Würzburg
+  time: 2025 – ongoing
+  note: no grade yet
+  details: |
+    M.Sc. programme in collaboration with the Earth Observation Center at the
+    German Aerospace Center (DLR-EOC).
 
-      Selection of current courses:
-        - AI approaches in Earth Observation — PyTorch for classification, image segmentation and object detection tasks
-        - Earth Observation Cloud Computing
-        - Risk and Disaster Earth Observation
-  - degree: B.Sc. Geoinformatics
-    university: Institute for Geoinformatics, University of Münster
-    time: 2021 - 2025
-    details: |
-      Fundamentals of mathematics and computer science, geosciences and, of
-      course, fundamentals and advanced elements of geoinformatics.
-      Grade: 2,2
+    **Selection of current courses:**
+    - AI approaches in Earth Observation — PyTorch for classification, image segmentation and object detection tasks
+    - Earth Observation Cloud Computing
+    - Risk and Disaster Earth Observation
+- title: Bachelor of Science Geoinformatics
+  org: Institute for Geoinformatics
+  place: Münster
+  time: 2021 – 2025
+  note: "grade: 2,2"
+  details: |
+    Fundamentals of mathematics and computer science, geosciences and, of
+    course, fundamentals and advanced elements of geoinformatics.
 
-      Relevant coursework:
-        - Machine Learning for openEOcubes
-        - Machine Learning
-        - Remote Sensing courses
-  - degree: B.A. Public Governance across Borders
-    university: Institute of Political Science, University of Münster
-    time: 2020 - 2021
-    details:
-  - degree: B.Sc. VWL (Economics)
-    university: Martin-Luther-Universität Halle-Wittenberg, Halle (Saale)
-    time: 2019 - 2020
-    details:
-  - degree: Secondary School — Abitur
-    university: Europaschule Gymnasium Westerstede, Westerstede
-    time: 2011 - 2019
-    details: |
-      Qualification: Abitur, Graduation: 2019
+    **Relevant coursework:**
+    - Machine Learning for openEOcubes
+    - Machine Learning
+    - Remote Sensing courses
+- title: Bachelor of Arts Public Governance across Borders
+  org: Institute of Political Science
+  place: Münster
+  time: 2020 – 2021
+- title: Bachelor of Science VWL (Economics)
+  org: Martin-Luther-Universität Halle-Wittenberg
+  place: Halle (Saale)
+  time: 2019 – 2020
+- title: Secondary School
+  org: Europaschule Gymnasium Westerstede
+  place: Westerstede
+  time: 2011 – 2019
+  details: |
+    Qualification: Abitur, Graduation: 2019
 
-experiences:
-  title: Experience
-  info:
-  - role: Internship -  (planned)
-    time: Feb 2027 - April 2027
-    company: Remote Sensing Solutions (RSS)
-    details: |
-      RSS GmbH is a Munich based company that provides remote sensing solutions for various applications, including environmental monitoring, agriculture, and disaster management.
-      No details yet.
-  - role: DLR Internship 
-    time: Oct 2026 - Dec 2026
-    company: German Aerospace Center (DLR)
-    details: |
-      Exploring different methods for mapping pumice rafts after submarine volcanic eruptions using remote sensing data.
-      - Training segmentation models using Foundation Models such as Thor and Terramind.
-  - role: Innovation Lab — Crown and Deadwood Segmentation
-    time: Jan 2026 - ongoing
-    company: Pattern Recognition Department, Institute of Computer Science, University of Würzburg
-    details: |
-      Cooperation project on segmentation of tree crowns and deadwood from
-      remote sensing imagery.
-  - role: Student Assistant
-    time: Feb 2026 - May 2026
-    company: Max-Planck-Institute of Animal Behavior
-    details: |
-      Providing and analyzing Earth observation data.
-  - role: Student Assistant — TinyAIoT project
-    time: Jul 2024 - Sep 2025
-    company: Spatial Intelligence Lab, University of Münster
-    details: |
-      Student assistant in the TinyAIoT project at the Spatial Intelligence Lab.
-      Project code: [TinyEnergyBench](https://github.com/TinyAIoT/TinyEnergyBench/tree/dev)
+thesis:
+  title: "Animal Welfare in Laboratory Conditions: Monitoring Zebrafish Behavior Using Deep Learning"
+  grade: "1,7"
+  supervisors: Prof. Dr. Benjamin Risse
+  university: University of Münster, 2025
+  description: >
+    This research implemented and surveyed deep learning methods to measure the
+    effect of enrichment in water tanks on zebrafish.
 
-      Tasks and achievements:
-        - Training of machine learning models with TensorFlow and PyTorch
-        - Compression / quantization of ML models
-        - Integrating High Performance Computing (HPC) into the training process
-        - Deployment on microcontrollers, profiling, measuring inference time
-  - role: Student Assistant — Teaching
-    time: Oct 2023 - Mar 2024 & Oct 2022 - Mar 2023
-    company: University of Münster
-    details: |
-      Supervising exercises in the module "Introduction to Geoinformatics".
+internships:
+- title: Internship (planned)
+  org: Remote Sensing Solutions (RSS)
+  place: Munich
+  time: Feb. 2027 – Apr. 2027
+  details: |
+    Munich-based company providing remote sensing solutions for environmental
+    monitoring, agriculture and disaster management.
+- title: DLR Internship
+  org: Island volcanism — multi-sensor remote sensing (SAR, optical, thermal)
+  time: Oct. 2026 – Dec. 2026
+  details: |
+    German Aerospace Center (DLR). Exploring methods for mapping pumice rafts after
+    submarine volcanic eruptions using remote sensing data.
+    - Training segmentation models using foundation models such as Thor and TerraMind
+- title: ESA Academy Training
+  org: Disruptive Innovation and Commercialisation in Earth Observation
+  time: Jul. 2026
+  details: |
+    European Space Agency (ESA) training programme on innovation and
+    commercialisation pathways for Earth observation technologies and services.
+- title: '"Innovation Lab"'
+  org: Crown and Deadwood Segmentation
+  time: Jan. 2026 – ongoing
+  details: |
+    In cooperation with the Pattern Recognition Department at the Institute of
+    Computer Science, University of Würzburg. Segmentation of tree crowns and
+    deadwood from multispectral drone imagery using deep learning.
 
-certifications:
-  title: Training & Workshops
-  list:
-  - name: ESA Academy Training — Disruptive Innovation and Commercialisation in Earth Observation
-    start: 2026
-    end:
-    organization: European Space Agency (ESA)
-    credentialid:
-    credentialurl:
-    credentialname:
-    details: |
-      Training programme on innovation and commercialisation pathways for Earth
-      observation technologies and services.
+work:
+- title: Student assistant
+  org: Max-Planck-Institute of Animal Behavior
+  time: Feb. 2026 – May 2026
+  details: |
+    Providing and analyzing Earth observation data.
+- title: Student assistant
+  org: University of Münster
+  place: Münster
+  time: Jul. 2024 – Sep. 2025
+  details: |
+    Student assistant in the TinyAIoT project at the Spatial Intelligence Lab.
+    Project code: [TinyEnergyBench](https://github.com/TinyAIoT/TinyEnergyBench/tree/dev)
+
+    **Tasks and achievements:**
+    - Training of machine learning models with TensorFlow and PyTorch
+    - Compression / quantization of ML models
+    - Integrating High Performance Computing (HPC) into the training process
+    - Deployment on microcontrollers, profiling, measuring inference time
+- title: Student assistant
+  org: University of Münster
+  place: Münster
+  time: Oct. 2022 – Mar. 2023 & Oct. 2023 – Mar. 2024
+  details: |
+    Supervising exercises in the module "Introduction to Geoinformatics".
+
+languages:
+- name: German
+  level: C2
+  comment: Native language
+- name: English
+  level: C1
+  comment: C1 in Listening, Reading, Writing and Speaking
+- name: French
+  level: A2
+  comment: General studies in Bachelor programme
+
+# level: 1-5 (squares in the Classic style)
+# since: "YYYY-MM" -> years are computed (build time + in the browser)
+# years: N        -> fixed value
+skills:
+- name: Language
+  items:
+  - name: Python
+    level: 4
+    since: "2022-10"
+    detail: Geospatial libraries (geopandas, rasterio), PyTorch, package building with uv
+  - name: R
+    level: 3
+    years: 3
+    detail: Geostatistics, modelling dynamic spatial processes, Earth observation
+- name: Software
+  items:
+  - name: QGIS
+    level: 4
+    since: "2022-10"
+    detail: Remote sensing projects, automation with Python, plugin basics
+  - name: Google Earth Engine
+    level: 3
+    since: "2022-10"
+    detail: Remote sensing projects, cloud computing
+    link: https://github.com/kwundram2602/geets
+    link_label: geets
+  - name: Git
+    level: 3
+    since: "2022-10"
+    link: https://github.com/kwundram2602
+    link_label: kwundram2602
+  - name: Slurm / HPC
+    level: 3
+    since: "2024-07"
+    detail: SLURM workflows
+  - name: SNAP
+    level: 3
+    since: "2025-10"
+    detail: esa_snappy workflows on radar data
+    link: https://github.com/kwundram2602/radar-snap-lib
+    link_label: radar-snap-lib
 
 projects:
-  title: Projects
   intro: >
     A selection of my own repositories. More on
     <a href="https://github.com/kwundram2602" target="_blank">GitHub</a>.
-  assignments:
+  items:
   - title: openeo_flood
     link: "https://github.com/kwundram2602/openeo_flood"
     tagline: "Flood mapping using the Global Flood Monitor. Also includes Flexth flood interpolation and basic damage assessment."
-
-publications:
-  title: Bachelor's Thesis
-  intro:
-  papers:
-  - title: "Animal Welfare in Laboratory Conditions: Monitoring Zebrafish Behavior Using Deep Learning"
-    link:
-    authors: "Kjell Wundram — supervised by Prof. Dr. Benjamin Risse"
-    conference: "University of Münster, 2025 — grade 1,7. Implemented and surveyed deep learning methods to measure the effect of enrichment in water tanks on zebrafish."
-
-skills:
-  title: Skills &amp; Proficiency
-
-  # since: "YYYY-MM" -> years are computed (build time + in the browser)
-  # years: N        -> fixed value
-  groups:
-  - name: Programming
-    items:
-    - name: Python
-      since: "2022-10"
-      detail: matplotlib, geopandas, torch, numpy
-    - name: R
-      years: 3
-      detail: geostatistics, dynamic spatial processes, earth observation
-  - name: GIS &amp; Earth Observation
-    items:
-    - name: QGIS
-      since: "2022-10"
-      detail: remote sensing projects, automation with Python, plugin basics
-    - name: Google Earth Engine
-      since: "2022-10"
-      detail: remote sensing projects, cloud computing
-    - name: SNAP
-      since: "2025-10"
-      detail: basic operations on RADAR data
-  - name: Infrastructure
-    items:
-    - name: Git
-      since: "2022-10"
-    - name: Slurm / HPC
-      since: "2024-07"
-      detail: SLURM workflows
 
 footer: >
   Kjell Wundram — built with the <a href="https://github.com/sharu725/online-cv" target="_blank" rel="nofollow">online-cv</a> Jekyll theme, designed by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a>.

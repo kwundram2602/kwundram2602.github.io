@@ -1,0 +1,37 @@
+{%- comment -%}
+  Document header used by the Classic and Minimal styles and by EO in print
+  (EO shows the sidebar on screen instead).
+{%- endcomment -%}
+{% assign sidebar = site.data.data.sidebar %}
+{% assign name_parts = sidebar.name | split: ' ' %}
+<header class="cv-header">
+  <div class="cv-header-top">
+    <div class="cv-identity">
+      <h1 class="cv-name">
+        {%- if name_parts.size > 1 -%}
+        {%- assign first_len = sidebar.name.size | minus: name_parts.last.size | minus: 1 -%}
+        <span class="cv-first">{{ sidebar.name | slice: 0, first_len }}</span> <span class="cv-last">{{ name_parts.last }}</span>
+        {%- else -%}
+        <span class="cv-last">{{ sidebar.name }}</span>
+        {%- endif -%}
+      </h1>
+      {% if sidebar.tagline %}<p class="cv-tagline">{{ sidebar.tagline }}</p>{% endif %}
+    </div>
+    <ul class="cv-contact">
+      {% if sidebar.citizenship %}<li><i class="fas fa-fw fa-location-dot" aria-hidden="true"></i><span>{{ sidebar.citizenship }}</span></li>{% endif %}
+      {% if sidebar.email %}<li><i class="far fa-fw fa-envelope" aria-hidden="true"></i><a href="mailto:{{ sidebar.email }}">{{ sidebar.email }}</a></li>{% endif %}
+      {% if sidebar.phone %}<li><i class="fas fa-fw fa-phone" aria-hidden="true"></i><a href="tel:{{ sidebar.phone }}">{{ sidebar.phone }}</a></li>{% endif %}
+      {% if sidebar.website %}<li><i class="fas fa-fw fa-globe" aria-hidden="true"></i><a href="{{ sidebar.website }}">{{ sidebar.website }}</a></li>{% endif %}
+      {% if sidebar.github %}<li><i class="fab fa-fw fa-github" aria-hidden="true"></i><a href="https://github.com/{{ sidebar.github }}">{{ sidebar.github }}</a></li>{% endif %}
+      {% if sidebar.linkedin %}<li><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><a href="https://linkedin.com/in/{{ sidebar.linkedin }}">linkedin.com/in/{{ sidebar.linkedin }}</a></li>{% endif %}
+    </ul>
+  </div>
+  <nav class="cv-nav" aria-label="Sections">
+    {%- for s in site.data.data.sections -%}
+    {%- assign key = s.data | default: s.id -%}
+    {%- if site.data.data[key] -%}
+    <a href="#{{ s.id }}" data-section="{{ s.id }}">{{ s.title }}</a>
+    {%- endif -%}
+    {%- endfor -%}
+  </nav>
+</header>
