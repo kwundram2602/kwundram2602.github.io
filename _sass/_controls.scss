@@ -266,6 +266,7 @@
   border-radius: 8px;
   overflow: hidden;
   label {
+    display: flex;
     flex: 1 1 0;
     position: relative;
     cursor: pointer;
@@ -279,8 +280,12 @@
     pointer-events: none;
   }
   span {
-    display: block;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
     padding: 6px 4px;
+    line-height: 1.2;
     text-align: center;
   }
   input:checked + span {

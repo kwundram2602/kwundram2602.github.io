@@ -28,7 +28,7 @@ I have made this into a Jekyll Theme. Checkout the live demo [here](https://onli
 * [Fork](https://github.com/sharu725/online-cv/fork) the repository;
 * Go to settings and set master branch as Github Pages source;
 * Your new site should be ready at `https://<username>.github.io/online-cv/`;
-* Use the floating **Style** / **Export** buttons to switch between the EO, Classic and Minimal styles and to print or save the CV as PDF with a chosen set of sections (`sections` and `styles` in `_data/data.yml`). `?style=classic` opens the page in a given style.
+* Use the floating **Style** / **Export** buttons to switch between the Modern timeline, Classic and Minimal styles and to print or save the CV as PDF with a chosen set of sections (`sections` and `styles` in `_data/data.yml`). `?style=classic` opens the page in a given style.
 
 Change all the details from one place: `_data/data.yml`.
 

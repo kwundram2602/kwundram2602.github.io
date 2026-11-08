@@ -3,6 +3,14 @@
   @page {
     size: A4;
     margin: 14mm 15mm 14mm;
+    // Empty margin boxes on the top and bottom edge make Chrome (131+) drop its
+    // own header/footer (date, title, URL) while keeping the page margins.
+    @top-left { content: ""; }
+    @top-center { content: ""; }
+    @top-right { content: ""; }
+    @bottom-left { content: ""; }
+    @bottom-center { content: ""; }
+    @bottom-right { content: ""; }
   }
 
   html,
