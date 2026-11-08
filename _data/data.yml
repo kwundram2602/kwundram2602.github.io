@@ -166,15 +166,6 @@ projects:
     link: "https://github.com/kwundram2602/openeo_flood"
     tagline: "Flood mapping using the Global Flood Monitor. Also includes Flexth flood interpolation and basic damage assessment."
 
-oss:
-  title: Contributions
-  intro: >
-    Work I have contributed to.
-  contributions:
-  - title: TinyEnergyBench
-    link: "https://github.com/TinyAIoT"
-    tagline: "Benchmarking energy consumption and inference time of quantized ML models on microcontrollers — built during the TinyAIoT project."
-
 publications:
   title: Bachelor's Thesis
   intro:
