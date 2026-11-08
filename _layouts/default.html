@@ -21,8 +21,10 @@
   {% include footer.html %}
 
   {% include scripts.html %}
-  <script src="{{ site.baseurl }}/assets/js/skill-years.js"></script>
-  <script src="{{ site.baseurl }}/assets/js/cv-export.js"></script>
+  {%- comment -%} ?v= forces browsers to fetch new assets after each build {%- endcomment -%}
+  {% assign asset_version = site.time | date: "%s" %}
+  <script src="{{ site.baseurl }}/assets/js/skill-years.js?v={{ asset_version }}"></script>
+  <script src="{{ site.baseurl }}/assets/js/cv-export.js?v={{ asset_version }}"></script>
   <script>
     // Fade sections in as they scroll into view (CSS disables it for reduced motion and print).
     (function () {
