@@ -20,6 +20,7 @@ function generatePDF() {
       container.innerHTML = html;
       // Keep the PDF light even when the page is shown in dark mode
       container.classList.add("force-light");
+      if (typeof updateSkillYears === "function") updateSkillYears(container);
 
       // Get name from the DOM (as defined in data.yml)
       const name = document.querySelector(".name").textContent;

@@ -178,32 +178,34 @@ publications:
 skills:
   title: Skills &amp; Proficiency
 
+  # since: "YYYY-MM" -> years are computed (build time + in the browser)
+  # years: N        -> fixed value
   groups:
   - name: Programming
     items:
     - name: Python
-      years: 3.5
+      since: "2022-10"
       detail: matplotlib, geopandas, torch, numpy
     - name: R
-      years: 4
+      years: 3
       detail: geostatistics, dynamic spatial processes, earth observation
   - name: GIS &amp; Earth Observation
     items:
     - name: QGIS
-      years: 4
+      since: "2022-10"
       detail: remote sensing projects, automation with Python, plugin basics
     - name: Google Earth Engine
-      years: 2.5
+      since: "2022-10"
       detail: remote sensing projects, cloud computing
     - name: SNAP
-      years: 0.5
+      since: "2025-10"
       detail: basic operations on RADAR data
   - name: Infrastructure
     items:
     - name: Git
-      years: 3
+      since: "2022-10"
     - name: Slurm / HPC
-      years: 2
+      since: "2024-07"
       detail: SLURM workflows
 
 footer: >

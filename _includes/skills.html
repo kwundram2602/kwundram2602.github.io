@@ -16,7 +16,7 @@
       <ul class="chips">
         {% for item in group.items %}
         <li class="chip">
-          {{ item.name }}{% if item.years %}<span class="chip-years">{{ item.years }} yrs</span>{% endif %}
+          {{ item.name }}{% if item.since %}{% include skill-duration.html since=item.since %}<span class="chip-years" data-since="{{ item.since }}">{{ skill_duration }}</span>{% elsif item.years %}<span class="chip-years">{{ item.years }} yrs</span>{% endif %}
         </li>
         {% endfor %}
       </ul>

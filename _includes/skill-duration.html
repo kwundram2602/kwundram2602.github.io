@@ -1,0 +1,21 @@
+{%- comment -%}
+  Sets `skill_duration` to the time since include.since ("YYYY-MM") at build time,
+  e.g. "4 yrs", "1.5 yrs", "1 yr", "8 mos". Mirrored in assets/js/skill-years.js.
+{%- endcomment -%}
+{%- assign since_parts = include.since | split: '-' -%}
+{%- assign now_y = site.time | date: '%Y' | plus: 0 -%}
+{%- assign now_m = site.time | date: '%m' | plus: 0 -%}
+{%- assign start_y = since_parts[0] | plus: 0 -%}
+{%- assign start_m = since_parts[1] | plus: 0 -%}
+{%- assign now_total = now_y | times: 12 | plus: now_m -%}
+{%- assign start_total = start_y | times: 12 | plus: start_m -%}
+{%- assign months = now_total | minus: start_total -%}
+{%- if months < 12 -%}
+  {%- if months < 1 -%}{%- assign months = 1 -%}{%- endif -%}
+  {%- capture skill_duration -%}{{ months }} mo{% if months != 1 %}s{% endif %}{%- endcapture -%}
+{%- else -%}
+  {%- assign halves = months | divided_by: 6 -%}
+  {%- assign whole = halves | divided_by: 2 -%}
+  {%- assign rest = halves | modulo: 2 -%}
+  {%- capture skill_duration -%}{{ whole }}{% if rest == 1 %}.5{% endif %} yr{% if whole != 1 or rest == 1 %}s{% endif %}{%- endcapture -%}
+{%- endif -%}
