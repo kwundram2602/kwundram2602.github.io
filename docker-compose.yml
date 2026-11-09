@@ -5,7 +5,12 @@ services:
     command: jekyll serve --watch --force_polling --verbose --livereload --host 0.0.0.0
     volumes:
       - .:/srv/jekyll:Z
+      - bundle:/usr/local/bundle # keep installed gems between starts
     environment:
       JEKYLL_VERSION: 3.8
     ports:
       - 4000:4000
+      - 35729:35729 # livereload
+
+volumes:
+  bundle:
