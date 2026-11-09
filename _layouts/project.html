@@ -1,0 +1,44 @@
+---
+layout: default
+---
+{%- comment -%}
+  One project page (files in _projects/). Images come from assets/projects/<file name>/.
+{%- endcomment -%}
+{% assign base = site.baseurl | append: "/assets/projects/" | append: page.slug | append: "/" %}
+<article class="section project-page" id="project">
+  <a class="project-back" href="{{ '/projects/' | relative_url }}"><i class="fas fa-arrow-left" aria-hidden="true"></i> All projects</a>
+  {% include section-title.html title=page.title icon="code-branch" %}
+  {% if page.tagline %}<p class="project-tagline">{{ page.tagline }}</p>{% endif %}
+
+  {% if page.links %}
+  <p class="project-links">
+    {% for l in page.links %}
+    <a class="project-link" href="{{ l.url }}" target="_blank" rel="noopener">
+      {%- if l.icon -%}<i class="{{ l.icon }}" aria-hidden="true"></i> {% endif -%}
+      {{ l.label }}</a>
+    {% endfor %}
+  </p>
+  {% endif %}
+
+  {% if page.cover %}
+  <img class="project-cover" src="{{ base }}{{ page.cover }}" alt="{{ page.cover_alt | default: page.title }}">
+  {% endif %}
+
+  <div class="project-body">
+    {{ content }}
+  </div>
+
+  {% if page.gallery %}
+  <h3 class="project-gallery-title">Gallery</h3>
+  <div class="project-gallery">
+    {% for g in page.gallery %}
+    <figure>
+      <a href="{{ base }}{{ g.file }}" target="_blank" rel="noopener" aria-label="Open image full size: {{ g.caption | default: g.file }}">
+        <img src="{{ base }}{{ g.file }}" alt="{{ g.alt | default: g.caption }}" loading="lazy">
+      </a>
+      {% if g.caption %}<figcaption>{{ g.caption }}</figcaption>{% endif %}
+    </figure>
+    {% endfor %}
+  </div>
+  {% endif %}
+</article>

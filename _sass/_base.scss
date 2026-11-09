@@ -191,18 +191,10 @@ p {
   }
 }
 
-.lang-list,
-.project-list {
+.lang-list {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-.project {
-  margin-bottom: 10px;
-}
-.project-title {
-  font-weight: 500;
-  color: var(--text);
 }
 .intro {
   margin-bottom: 16px;

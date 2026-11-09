@@ -63,7 +63,7 @@
       background: var(--chip-bg);
       outline: none;
     }
-    &[aria-current="page"] {
+    &[aria-current] {
       color: var(--chip-text);
       background: var(--chip-bg);
       font-weight: 700;
@@ -90,7 +90,7 @@ html[data-style="minimal"] .site-nav {
   }
   .site-nav-links a {
     border-radius: 0;
-    &[aria-current="page"] {
+    &[aria-current] {
       background: transparent;
       color: var(--text);
       text-decoration: underline;

@@ -34,3 +34,18 @@ compress_html: # - http://jch.penibelst.de/
 port: 4000
 host: 0.0.0.0
 safe: false
+
+# Projects: one Markdown file per project in _projects/, page at /projects/<file name>/
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+      hide_section_nav: true
+      no_export: true

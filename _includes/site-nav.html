@@ -9,7 +9,7 @@
       {% for item in site.data.data.nav %}
       {% assign item_url = item.url | relative_url %}
       <li>
-        <a href="{{ item_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>
+        <a href="{{ item_url }}"{% if page.url == item.url %} aria-current="page"{% elsif item.url != "/" and page.url contains item.url %} aria-current="true"{% endif %}>
           {%- if item.icon -%}<i class="fas fa-{{ item.icon }}" aria-hidden="true"></i>{%- endif -%}
           <span>{{ item.title }}</span></a>
       </li>

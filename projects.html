@@ -1,0 +1,35 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+hide_section_nav: true
+no_export: true
+---
+
+{%- comment -%}
+  Cards come from the _projects/ collection, sorted by `order`.
+{%- endcomment -%}
+<section class="section section-projects" id="projects">
+  {% include section-title.html title="Projects" icon="code-branch" %}
+  <p class="intro">
+    A selection of my own repositories. More on
+    <a href="https://github.com/kwundram2602" target="_blank" rel="noopener">GitHub</a>.
+  </p>
+  {% assign projects = site.projects | sort: "order" %}
+  <ul class="project-grid">
+    {% for p in projects %}
+    <li class="project-card{% unless p.cover %} no-cover{% endunless %}">
+      <a href="{{ p.url | relative_url }}">
+        {% if p.cover %}
+        <img class="project-card-cover" src="{{ site.baseurl }}/assets/projects/{{ p.slug }}/{{ p.cover }}" alt="" loading="lazy">
+        {% endif %}
+        <span class="project-card-body">
+          <span class="project-card-title">{{ p.title }}</span>
+          {% if p.tagline %}<span class="project-card-tagline">{{ p.tagline }}</span>{% endif %}
+          <span class="project-card-more">Read more <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+        </span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

@@ -7,6 +7,9 @@ nav:
 - title: CV
   url: /
   icon: user
+- title: Projects
+  url: /projects/
+  icon: code-branch
 - title: Certificates
   url: /certificates/
   icon: certificate
@@ -51,11 +54,6 @@ sections:
   include: skills
   icon: wrench
   export: true
-- id: projects
-  title: Projects
-  include: projects
-  icon: code-branch
-  export: false
 
 # Selectable styles (page and PDF). The first one is the default.
 styles:
@@ -420,15 +418,6 @@ skills:
     detail: esa_snappy workflows on radar data
     link: https://github.com/kwundram2602/radar-snap-lib
     link_label: radar-snap-lib
-
-projects:
-  intro: >
-    A selection of my own repositories. More on
-    <a href="https://github.com/kwundram2602" target="_blank">GitHub</a>.
-  items:
-  - title: openeo_flood
-    link: "https://github.com/kwundram2602/openeo_flood"
-    tagline: "Flood mapping using the Global Flood Monitor. Also includes Flexth flood interpolation and basic damage assessment."
 
 # Certificates page (/certificates/), newest first. Files live in assets/certificates/,
 # previews in assets/certificates/thumbs/ (render with:
