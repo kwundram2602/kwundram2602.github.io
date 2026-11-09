@@ -28,22 +28,9 @@ gallery:
     caption: Dashboard — browsing available GFM flood scenes
 ---
 
-One pipeline from raw inputs to water-depth maps: the **FABDEM** terrain model
-(Google Earth Engine), the **GFM flood extent** of the Copernicus Global Flood
-Monitor (EODC STAC catalog) and **FLEXTH** for water depth and level, driven by a
-single `config.yaml` and a Streamlit dashboard.
-
-The app turns a satellite-derived flood extent into an interpolated water-depth
-map and a set of impact numbers for any area of interest — useful for natural
-hazard response as well as for research. It makes the limitations of GFM visible,
-especially in urban areas where the radar-based detection cannot evaluate large
-parts of a city, and it compares the different GFM algorithms (DLR, TUW and the
-ensemble) for the same scene. On top of that it estimates the exposure and damage
-of the modelled flood: population, roads and railways, buildings and a rough EUR
-damage figure.
-
-It was built for an Advanced Cloud Computing course to explore what different
-cloud workflows (Google Earth Engine, STAC/EODC, Pangeo) can do for such a pipeline.
+The app was created in the context of a university course for Advanced Cloud Computing and turns a satellite-derived flood extent into an interpolated water-depth
+map and a set of impact numbers for any area of interest.
+It uses the EODC STAC which hosts the Gobal Flood Monitor, Google Earth Engine together with Flexth.
 
 ## Pipeline steps
 
@@ -61,5 +48,4 @@ The Streamlit app walks through one project from configuration to results: edit
 the config per step, draw the area of interest, search the catalog for GFM scenes
 that actually exist for it, run the steps with live logs, and explore the results
 on a map — water depth, GFM likelihood, the GFM exclusion mask and the flood
-pixels added by the FLEXTH interpolation, with click-to-probe on the
-full-resolution GeoTIFF.
+pixels added by the FLEXTH interpolation.

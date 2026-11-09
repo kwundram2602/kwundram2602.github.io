@@ -15,8 +15,7 @@ links:
 
 A Python library and command line tool around ESA SNAP (`esa_snappy`) for
 Sentinel-1 radar processing. A pipeline is described in YAML — one key per
-operator, its parameters as subkeys — and each node takes the previous one as its
-source, so a linear chain needs no wiring:
+operator, its parameters as subkeys:
 
 ```yaml
 pipeline:
@@ -37,11 +36,8 @@ pipeline:
 - **Search and download** scenes from the ASF archive with the same YAML approach:
   AOI (GeoPackage, Shapefile, GeoJSON, bounding box or WKT), time range and any
   ASF search option.
-- **Validation without a JVM**: configs are checked offline, so a typo in a
-  parameter name is caught before anything runs.
-- **Explicit wiring** where a straight chain is not enough, e.g. two inputs for
-  interferometric coregistration.
-- **Intermediates on demand**: any node can be saved as BEAM-DIMAP to open in SNAP Desktop.
-- **Filters after SNAP**: edge detection and morphology (scikit-image) as pipeline nodes
-  on the resulting GeoTIFFs.
 - **Inspect graphs**: dump the generated GPF graph XML or render it as an image.
+
+## What is planned
+
+- Docker / Charliecloud integration for running SAR pipelines on HPC
