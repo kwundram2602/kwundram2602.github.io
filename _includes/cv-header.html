@@ -21,7 +21,7 @@
       {% if sidebar.citizenship %}<li><i class="fas fa-fw fa-location-dot" aria-hidden="true"></i><span>{{ sidebar.citizenship }}</span></li>{% endif %}
       {% if sidebar.email %}<li><i class="far fa-fw fa-envelope" aria-hidden="true"></i><a href="mailto:{{ sidebar.email }}">{{ sidebar.email }}</a></li>{% endif %}
       {% if sidebar.phone %}<li><i class="fas fa-fw fa-phone" aria-hidden="true"></i><a href="tel:{{ sidebar.phone }}">{{ sidebar.phone }}</a></li>{% endif %}
-      {% if sidebar.website %}<li><i class="fas fa-fw fa-globe" aria-hidden="true"></i><a href="{{ sidebar.website }}">{{ sidebar.website }}</a></li>{% endif %}
+      {% if sidebar.website %}<li><i class="fas fa-fw fa-globe" aria-hidden="true"></i><a href="{{ sidebar.website }}">{{ sidebar.website | remove: "https://" | remove: "http://" }}</a></li>{% endif %}
       {% if sidebar.github %}<li><i class="fab fa-fw fa-github" aria-hidden="true"></i><a href="https://github.com/{{ sidebar.github }}">{{ sidebar.github }}</a></li>{% endif %}
       {% if sidebar.linkedin %}<li><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><a href="https://linkedin.com/in/{{ sidebar.linkedin }}">linkedin.com/in/{{ sidebar.linkedin }}</a></li>{% endif %}
     </ul>
