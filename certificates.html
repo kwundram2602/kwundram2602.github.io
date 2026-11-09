@@ -1,0 +1,15 @@
+---
+layout: default
+title: Certificates
+permalink: /certificates/
+hide_section_nav: true
+no_export: true
+---
+
+{%- comment -%}
+  Entries come from `certificates` in _data/data.yml.
+{%- endcomment -%}
+<section class="section section-certificates" id="certificates">
+  {% include section-title.html title="Certificates" icon="certificate" %}
+  {% include sections/certificates.html data=site.data.data.certificates %}
+</section>

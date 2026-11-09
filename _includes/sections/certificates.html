@@ -1,0 +1,33 @@
+{% assign base = site.baseurl | append: "/assets/certificates/" %}
+<ul class="cert-grid">
+  {% for c in include.data %}
+  <li class="cert">
+    {% if c.thumb %}
+    <a class="cert-thumb" href="{{ base }}{{ c.file }}" target="_blank" rel="noopener" aria-label="Open certificate: {{ c.title }} (PDF)">
+      <img src="{{ base }}thumbs/{{ c.thumb }}" alt="Certificate: {{ c.title }}" loading="lazy" width="720" height="509">
+    </a>
+    {% endif %}
+    <div class="cert-body">
+      {% if c.type %}<p class="cert-type">{{ c.type }}</p>{% endif %}
+      <h3 class="cert-title">{{ c.title }}</h3>
+      {% if c.original_title %}<p class="cert-original" lang="de">{{ c.original_title }}</p>{% endif %}
+      <p class="cert-meta">
+        <span class="cert-issuer">{{ c.issuer }}</span>
+        {%- if c.date %} · <time datetime="{{ c.date | date: '%Y-%m-%d' }}">
+          {%- if c.date_end -%}
+            {{ c.date | date: "%-d" }}–{{ c.date_end | date: "%-d %b %Y" }}
+          {%- else -%}
+            {{ c.date | date: "%b %Y" }}
+          {%- endif -%}
+        </time>{% endif %}
+      </p>
+      {% if c.place %}<p class="cert-place"><i class="fas fa-location-dot" aria-hidden="true"></i> {{ c.place }}</p>{% endif %}
+      {% if c.verification_id %}<p class="cert-id"><span>Verification ID</span> <code>{{ c.verification_id }}</code></p>{% endif %}
+      <p class="cert-actions">
+        {% if c.file %}<a class="cert-link" href="{{ base }}{{ c.file }}" target="_blank" rel="noopener"><i class="far fa-file-pdf" aria-hidden="true"></i> View PDF</a>{% endif %}
+        {% if c.url %}<a class="cert-link" href="{{ c.url }}" target="_blank" rel="noopener"><i class="fas fa-shield-halved" aria-hidden="true"></i> {{ c.url_label | default: "Verify" }}</a>{% endif %}
+      </p>
+    </div>
+  </li>
+  {% endfor %}
+</ul>

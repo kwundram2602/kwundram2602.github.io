@@ -1,0 +1,154 @@
+/* ======= Certificates page ======= */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cert {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--surface);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  &:hover {
+    box-shadow: var(--shadow);
+  }
+}
+
+.cert-thumb {
+  display: block;
+  border-bottom: 1px solid var(--divider);
+  background: #fff;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 720 / 509;
+    object-fit: cover;
+    transition: opacity 0.2s ease;
+  }
+  &:hover img,
+  &:focus-visible img {
+    opacity: 0.88;
+  }
+}
+
+.cert-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 16px 18px 18px;
+  p {
+    margin: 0 0 6px;
+  }
+}
+
+.cert-type {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: var(--theme);
+}
+
+.cert-title {
+  margin: 0 0 6px;
+  font-size: 16px;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.cert-original {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.cert-meta,
+.cert-place {
+  color: var(--text-2);
+}
+.cert-issuer {
+  font-weight: 500;
+}
+.cert-place i {
+  margin-right: 2px;
+  color: var(--muted);
+}
+
+.cert-id {
+  font-size: 12px;
+  color: var(--muted);
+  code {
+    padding: 1px 5px;
+    font-size: 11px;
+    color: var(--text-2);
+    background: var(--chip-bg);
+    border-radius: 3px;
+    word-break: break-all;
+  }
+}
+
+.cert-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto !important;
+  padding-top: 8px;
+}
+
+.cert-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid var(--divider);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    border-color: var(--theme);
+    text-decoration: none;
+  }
+}
+
+html[data-style="minimal"] {
+  .cert,
+  .cert-link,
+  .cert-id code {
+    border-radius: 0;
+  }
+  .cert-type {
+    color: var(--text);
+  }
+}
+html[data-style="classic"] .cert {
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 767px) {
+  .cert-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media print {
+  .cert-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cert {
+    break-inside: avoid;
+  }
+  .cert-actions {
+    display: none;
+  }
+}

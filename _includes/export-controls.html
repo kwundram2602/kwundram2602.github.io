@@ -28,6 +28,7 @@
     </div>
   </div>
 
+  {% unless page.no_export %}
   <div class="cv-panel" id="export-panel" role="dialog" aria-label="Export CV" hidden>
     <p class="cv-panel-title">Export</p>
 
@@ -62,13 +63,16 @@
     </button>
     <p class="cv-hint">Pick “Save as PDF” as the printer in the dialog. If a date or URL still shows (Firefox, Safari), untick “Headers and footers” under More settings.</p>
   </div>
+  {% endunless %}
 
   <div class="cv-toolbar" role="toolbar" aria-label="Style and export">
     <button type="button" class="cv-btn" aria-expanded="false" aria-controls="style-panel">
       <i class="fas fa-palette" aria-hidden="true"></i><span class="label">Style</span>
     </button>
+    {% unless page.no_export %}
     <button type="button" class="cv-btn" aria-expanded="false" aria-controls="export-panel">
       <i class="fas fa-file-pdf" aria-hidden="true"></i><span class="label">Export</span>
     </button>
+    {% endunless %}
   </div>
 </div>

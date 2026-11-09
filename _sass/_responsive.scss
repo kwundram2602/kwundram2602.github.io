@@ -18,6 +18,23 @@
     padding: 30px 20px;
   }
 
+  // Navbar spans the screen like the CV card.
+  html[data-style] .site-nav {
+    top: 0;
+    margin-bottom: 0;
+    border-width: 0 0 1px;
+    border-radius: 0;
+  }
+  .site-nav-inner {
+    padding: 8px 10px 8px 16px;
+  }
+  .site-nav-links a {
+    padding: 7px 11px;
+  }
+  .section {
+    scroll-margin-top: 64px;
+  }
+
   html[data-style="eo"] .entry {
     grid-template-columns: minmax(0, 1fr);
     .entry-time {

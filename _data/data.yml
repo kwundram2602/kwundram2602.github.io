@@ -2,6 +2,15 @@
 # Be aware that even a small syntax error here can lead to failures in output.
 #
 
+# Top navigation bar: one entry per page (url relative to the site root).
+nav:
+- title: CV
+  url: /
+  icon: user
+- title: Certificates
+  url: /certificates/
+  icon: certificate
+
 # Order, titles and export defaults of the main sections.
 #   include: template in _includes/sections/ used to render the section
 #   data:    key below that holds the content (defaults to id)
@@ -420,6 +429,36 @@ projects:
   - title: openeo_flood
     link: "https://github.com/kwundram2602/openeo_flood"
     tagline: "Flood mapping using the Global Flood Monitor. Also includes Flexth flood interpolation and basic damage assessment."
+
+# Certificates page (/certificates/), newest first. Files live in assets/certificates/,
+# previews in assets/certificates/thumbs/ (render with:
+#   pdftoppm -jpeg -jpegopt quality=82 -scale-to-x 720 -scale-to-y -1 -singlefile <pdf> thumbs/<name>).
+#   date: YYYY-MM-DD (shown as "Nov 2026"), date_end for multi-day events
+#   optional: place, original_title, verification_id, url (verification/course page), url_label
+certificates:
+- title: "Beyond the Visible: Introduction to Hyperspectral Remote Sensing"
+  original_title: "Beyond the Visible – Einführung in die hyperspektrale Fernerkundung (HYPER-EDU)"
+  issuer: EO College
+  type: Course certificate
+  date: 2026-11-09
+  verification_id: 7EE1770D8E-7CB733E0F5-759798C434
+  file: hyper-edu-beyond-the-visible.pdf
+  thumb: hyper-edu-beyond-the-visible.jpg
+- title: "Cubes & Clouds"
+  issuer: EO College
+  type: Course certificate
+  date: 2026-07-22
+  verification_id: 7A697858D9-7A69780E35-759798C434
+  file: cubes-and-clouds.pdf
+  thumb: cubes-and-clouds.jpg
+- title: Disruptive Innovation and Commercialisation in Earth Observation Training Course 2026
+  issuer: ESA Academy
+  type: Certificate of participation
+  date: 2026-07-06
+  date_end: 2026-07-09
+  place: ESEC-Galaxia, Transinne, Belgium
+  file: esa-academy-disruptive-innovation-eo-2026.pdf
+  thumb: esa-academy-disruptive-innovation-eo-2026.jpg
 
 footer: >
   Kjell Wundram — built with the <a href="https://github.com/sharu725/online-cv" target="_blank" rel="nofollow">online-cv</a> Jekyll theme, designed by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a>.

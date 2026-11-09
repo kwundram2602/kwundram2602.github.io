@@ -1,0 +1,20 @@
+{%- comment -%}
+  Top navigation bar. Entries come from `nav` in _data/data.yml.
+{%- endcomment -%}
+{% assign sidebar = site.data.data.sidebar %}
+<nav class="site-nav d-print-none" aria-label="Site">
+  <div class="site-nav-inner">
+    <a class="site-nav-brand" href="{{ site.baseurl }}/">{{ sidebar.name }}</a>
+    <ul class="site-nav-links">
+      {% for item in site.data.data.nav %}
+      {% assign item_url = item.url | relative_url %}
+      <li>
+        <a href="{{ item_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>
+          {%- if item.icon -%}<i class="fas fa-{{ item.icon }}" aria-hidden="true"></i>{%- endif -%}
+          <span>{{ item.title }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

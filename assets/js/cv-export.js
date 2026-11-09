@@ -104,7 +104,7 @@
     })
   );
 
-  controls.querySelector("[data-reset-sections]").addEventListener("click", () => {
+  controls.querySelector("[data-reset-sections]")?.addEventListener("click", () => {
     sectionBoxes.forEach((box) => {
       box.checked = box.hasAttribute("data-default");
     });
@@ -184,7 +184,7 @@
     }
   });
 
-  controls.querySelector("[data-print]").addEventListener("click", () => {
+  controls.querySelector("[data-print]")?.addEventListener("click", () => {
     const chosen = styleRadios.find((radio) => radio.checked);
     const pageStyle = root.dataset.style;
 

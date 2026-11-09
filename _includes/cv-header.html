@@ -26,6 +26,7 @@
       {% if sidebar.linkedin %}<li><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><a href="https://linkedin.com/in/{{ sidebar.linkedin }}">linkedin.com/in/{{ sidebar.linkedin }}</a></li>{% endif %}
     </ul>
   </div>
+  {% unless page.hide_section_nav %}
   <nav class="cv-nav" aria-label="Sections">
     {%- for s in site.data.data.sections -%}
     {%- assign key = s.data | default: s.id -%}
@@ -34,4 +35,5 @@
     {%- endif -%}
     {%- endfor -%}
   </nav>
+  {% endunless %}
 </header>
