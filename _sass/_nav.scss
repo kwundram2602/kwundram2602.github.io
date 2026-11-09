@@ -85,6 +85,9 @@ html[data-style="minimal"] .site-nav {
   max-width: 820px;
   border-radius: 0;
   box-shadow: none;
+  .site-nav-brand {
+    text-decoration-color: transparent;
+  }
   .site-nav-links a {
     border-radius: 0;
     &[aria-current="page"] {
